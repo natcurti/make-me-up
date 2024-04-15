@@ -1,0 +1,12 @@
+:root {
+  --font: "Questrial", sans-serif;
+  --pink: #ff4f9d;
+  --purple: #884cd2;
+  --offwhite: #f9f8f6;
+  --dark: #1c1a1d;
+  --white: #fff;
+}
+
+body {
+  font-family: var(--font);
+}
