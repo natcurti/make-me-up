@@ -67,15 +67,13 @@
   text-decoration: underline;
 }
 
-.link,
-.nav-link {
+.link {
   color: var(--gray);
   text-decoration: none;
   padding: 8px;
 }
 
-.link:hover,
-.nav-link:hover {
+.link:hover {
   color: var(--pink);
 }
 
@@ -135,6 +133,16 @@
 .dropdown-menu {
   padding: 0;
   border: none;
+}
+
+.nav-link {
+  color: var(--gray);
+  text-decoration: none;
+  padding: 8px;
+}
+
+.nav-link:hover {
+  color: var(--pink);
 }
 
 .navbar-nav .nav-link.show {

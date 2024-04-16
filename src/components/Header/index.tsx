@@ -19,7 +19,13 @@ const Header = () => {
       <Navbar expand="lg">
         <Container fluid className="d-flex px-3">
           <Link to="/" className="img-container me-xl-2 focus-ring">
-            <img src="/public/logo.png" className="img-fluid" />
+            <h1 className="m-0">
+              <img
+                src="/public/logo.png"
+                className="img-fluid"
+                alt="Logo escrito make me up, em tons de rosa e roxo."
+              />
+            </h1>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="justify-content-around">
