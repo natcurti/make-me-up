@@ -1,0 +1,8 @@
+.btn-icon,
+.btn-icon:focus {
+  color: var(--pink);
+}
+
+.btn-icon:hover {
+  color: var(--purple);
+}

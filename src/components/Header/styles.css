@@ -34,6 +34,7 @@
 .btn-login:focus,
 .btn-sign-in:focus {
   background-color: var(--pink);
+  color: white;
 }
 
 .btn-sign-in {
@@ -41,15 +42,6 @@
   color: var(--white);
   border: 0;
   width: 90%;
-}
-
-.btn-icon,
-.btn-icon:focus {
-  color: var(--pink);
-}
-
-.btn-icon:hover {
-  color: var(--purple);
 }
 
 .container-new-account {
@@ -106,7 +98,10 @@
 }
 
 .container-nav-and-input {
-  width: 60%;
+  width: 100%;
+  @media (min-width: 992px) {
+    width: 60%;
+  }
   @media (min-width: 1200px) {
     width: 100%;
   }

@@ -9,8 +9,9 @@ import {
 } from "react-bootstrap";
 import "./styles.css";
 import { Link } from "react-router-dom";
-import { Heart, Cart2, Search } from "react-bootstrap-icons";
+import { Cart2, Heart, Search } from "react-bootstrap-icons";
 import Message from "../Message";
+import ButtonIcon from "../ButtonIcon";
 
 const Header = () => {
   return (
@@ -116,12 +117,12 @@ const Header = () => {
                   </div>
                 </Dropdown.Menu>
               </Dropdown>
-              <Button className="bg-transparent border-0 btn-icon">
+              <ButtonIcon>
                 <Heart size={25} />
-              </Button>
-              <Button className="bg-transparent border-0 btn-icon">
+              </ButtonIcon>
+              <ButtonIcon>
                 <Cart2 size={25} />
-              </Button>
+              </ButtonIcon>
             </div>
           </Navbar.Collapse>
         </Container>
