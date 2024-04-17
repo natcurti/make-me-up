@@ -1,0 +1,11 @@
+.container-card-benefits {
+  width: 25rem;
+  color: var(--pink);
+  @media (min-width: 992px) {
+    width: 28rem;
+  }
+}
+
+.text-benefits {
+  color: var(--dark-purple);
+}
