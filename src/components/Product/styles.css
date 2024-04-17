@@ -1,0 +1,26 @@
+.container-card {
+  width: 15rem;
+}
+
+.container-card img {
+  width: 13rem;
+  height: 13rem;
+  object-fit: cover;
+}
+
+.btn-buy {
+  background-color: var(--pink);
+}
+
+.btn-buy:hover,
+.btn-buy:focus {
+  background-color: var(--purple);
+}
+
+.card-title {
+  color: var(--pink);
+}
+
+.card-subtitle {
+  color: var(--dark-purple);
+}
