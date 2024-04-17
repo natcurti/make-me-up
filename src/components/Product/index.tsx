@@ -7,7 +7,7 @@ const Product = () => {
   return (
     <Card className="container-card">
       <div className="mx-auto mt-3">
-        <img src="https://cdn.shopify.com/s/files/1/1338/0845/collections/blottedlip-lippie-stix_grande.jpg?v=1512588803" />
+        <img src="src/data/assets/bronzers/bronzer-fit-me.jpg" />
       </div>
       <Card.Body>
         <Card.Title className="card-title">Card Title</Card.Title>

@@ -1,8 +1,8 @@
 export interface IProduct {
-  id: number;
-  brand: string;
-  price: string;
-  image_link: string;
+  title: string;
   description: string;
-  product_type: string;
+  brand: string;
+  price: number;
+  category: string;
+  image: string;
 }
