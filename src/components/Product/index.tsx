@@ -2,12 +2,22 @@ import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 import ButtonIcon from "../ButtonIcon";
 import { Heart, Cart2 } from "react-bootstrap-icons";
+import { IProduct } from "src/types/IProduct";
 
-const Product = () => {
+const Product = ({
+  title,
+  description,
+  brand,
+  price,
+  category,
+  image,
+  id,
+}: IProduct) => {
+  console.log(title, description, brand, price, category, image, id);
   return (
     <Card className="container-card">
       <div className="mx-auto mt-3">
-        <img src="src/data/assets/bronzers/bronzer-fit-me.jpg" />
+        <img src={image} />
       </div>
       <Card.Body>
         <Card.Title className="card-title">Card Title</Card.Title>
