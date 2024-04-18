@@ -11,7 +11,7 @@
     },
     {
       "title": "Base Bruna Tavares BT Skin",
-      "description": "Base líquida com acabamento aveludado. Essa base garante uniformidade aliada a um efeito natural, além de oferecer benefícios de skincare.",
+      "description": "Base líquida com acabamento aveludado. Essa base garante uniformidade aliada a um efeito natural.",
       "brand": "Bruna Tavares",
       "price": 57.9,
       "category": "Base",
@@ -20,7 +20,7 @@
     },
     {
       "title": "Boca Rosa Beauty by Payot",
-      "description": "Base líquida com acabamento matte. Essa base é hipoalergênica, oferece alta cobertura e permite construir camadas.",
+      "description": "Base líquida com acabamento matte. Essa base é hipoalergênica e oferece alta cobertura.",
       "brand": "Payot",
       "price": 49.9,
       "category": "Base",
@@ -29,7 +29,7 @@
     },
     {
       "title": "Maybelline Superstay Active Wear",
-      "description": "Base líquida. Essa base traz fórmula de alta cobertura com duração de até 30 horas, acabamento natural e efeito matte.",
+      "description": "Base líquida. Essa base traz fórmula de alta cobertura com duração de até 30 horas.",
       "brand": "Maybelline",
       "price": 109.9,
       "category": "Base",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Maybelline NY Bronzer em Pó Fit Me",
-      "description": "Bronzer em pó compacto. Altamente pigmentado e adequado para todos os tipos de pele, proporciona um aspecto corado e saudável, sem deixar a pele oleosa ou ressecada.",
+      "description": "Bronzer em pó compacto. Altamente pigmentado e adequado para todos os tipos de pele.",
       "brand": "Maybelline",
       "price": 45.99,
       "category": "Bronzer",
@@ -47,7 +47,7 @@
     },
     {
       "title": "Bronzer Bahama Mama, theBalm Cosmetics",
-      "description": "Bronzer em pó com efeito matte. Ideal para blush e contorno artístico, este bronzer proporciona à sua pele um bronzeado natural e luminoso, como se você tivesse sido beijada pelo sol.",
+      "description": "Bronzer em pó com efeito matte. Ideal para blush e contorno artístico.",
       "brand": "theBalm",
       "price": 202.9,
       "category": "Bronzer",
@@ -56,7 +56,7 @@
     },
     {
       "title": "Bronzer Benefit Hoola",
-      "description": "O Pó Bronzeador Benefit Hoola deixa uma cobertura opaca e não possui pigmentos alaranjados. É uma ótima opção para fazer contorno facial e deixar a make ainda mais bonita.",
+      "description": "O Pó Bronzeador Benefit Hoola deixa uma cobertura opaca e não possui pigmentos alaranjados.",
       "brand": "Benefit",
       "price": 210.9,
       "category": "Bronzer",
@@ -65,7 +65,7 @@
     },
     {
       "title": "Bronzer Sunset Striptease",
-      "description": "O Pó Bronzeador Benefit Hoola deixa uma cobertura opaca e não possui pigmentos alaranjados. É uma ótima opção para fazer contorno facial e deixar a make ainda mais bonita.",
+      "description": "Bronzer em pó com efeito cintiliante. É uma ótima opção para fazer contorno facial e deixar a make ainda mais bonita.",
       "brand": "Wet n Wild",
       "price": 210.9,
       "category": "Bronzer",
@@ -74,7 +74,7 @@
     },
     {
       "title": "Blush Me Cherry Mariana Saad",
-      "description": "Blush compacto para todos os tipos de pele. Com alta pigmentação e acabamento cintilante, Mariana Saad by Océane Blush Me destaca as maçãs do rosto. ",
+      "description": "Blush compacto para todos os tipos de pele. Com alta pigmentação e acabamento cintilante. ",
       "brand": "Océane",
       "price": 54.9,
       "category": "Blush",
@@ -83,7 +83,7 @@
     },
     {
       "title": "Blush Niina Secrets",
-      "description": "Blush com acabamento luminoso. Eudora Niina Secrets Blush & Go confere um toque corado e pode ser usado nos lábios e no rosto. ",
+      "description": "Blush com acabamento luminoso. Confere um toque corado e pode ser usado nos lábios e no rosto. ",
       "brand": "Eudora",
       "price": 52.9,
       "category": "Blush",
@@ -92,7 +92,7 @@
     },
     {
       "title": "Blush em Pó Dailus Era Sol que Me Faltava",
-      "description": "Blush em pó. Dailus deixa a sua pele com aquele ar saudável e um acabamento natural. Indispensável para a sua rotina de maquiagem! ",
+      "description": "Blush em pó. Dailus deixa a sua pele com aquele ar saudável e um acabamento natural. ",
       "brand": "Dailus",
       "price": 27.9,
       "category": "Blush",
@@ -101,7 +101,7 @@
     },
     {
       "title": "BT Shimmer Blush",
-      "description": "Blush compacto com acabamento cintilante. Ese blush confere cor e glow incrível, do natural ao radiante, para deixar sua pele ainda mais bonita na maquiagem. ",
+      "description": "Blush compacto com acabamento cintilante. Ese blush confere cor e glow incrível, do natural ao radiante. ",
       "brand": "Bruna Tavares",
       "price": 74.9,
       "category": "Blush",

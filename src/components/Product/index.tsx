@@ -4,27 +4,23 @@ import ButtonIcon from "../ButtonIcon";
 import { Heart, Cart2 } from "react-bootstrap-icons";
 import { IProduct } from "src/types/IProduct";
 
-const Product = ({
-  title,
-  description,
-  brand,
-  price,
-  category,
-  image,
-  id,
-}: IProduct) => {
-  console.log(title, description, brand, price, category, image, id);
+const Product = ({ title, description, brand, price, image }: IProduct) => {
   return (
     <Card className="container-card">
       <div className="mx-auto mt-3">
         <img src={image} />
       </div>
-      <Card.Body>
-        <Card.Title className="card-title">Card Title</Card.Title>
-        <Card.Text className="card-subtitle mb-3">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+      <Card.Body className="d-flex flex-column justify-content-between">
+        <div>
+          <Card.Title className="card-title fw-bold">
+            {brand.toUpperCase()}
+          </Card.Title>
+          <Card.Subtitle className="card-subtitle mb-3">{title}</Card.Subtitle>
+          <Card.Text className="card-text">{description}</Card.Text>
+          <Card.Text className="fw-bold mb-4 fs-5">
+            R${price.toFixed(2)}
+          </Card.Text>
+        </div>
         <div className="d-flex justify-content-between">
           <Button className="d-flex align-items-center gap-2 border-0 btn-buy">
             Comprar
