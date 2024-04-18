@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DefaultPage />}>
           <Route index element={<Home />} />
-          <Route path="categorias/:nomeCategoria" element={<Categories />} />
+          <Route path="categorias/:categoryName" element={<Categories />} />
         </Route>
       </Routes>
     </BrowserRouter>
