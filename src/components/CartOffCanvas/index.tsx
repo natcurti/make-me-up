@@ -13,7 +13,7 @@ const CartOffCanvas = () => {
         <Cart2 size={25} />
       </ButtonIcon>
 
-      <Offcanvas show={isOpen} onHide={handleOpen}>
+      <Offcanvas show={isOpen} onHide={handleOpen} placement="end">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
