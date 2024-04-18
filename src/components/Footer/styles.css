@@ -29,7 +29,7 @@
   width: 0.85rem;
   height: 0.85rem;
   left: -20px;
-  background-image: url("/arrow-right.png");
+  background-image: url("/public/assets/arrow-right.png");
   background-size: 8px;
   background-repeat: no-repeat;
 }

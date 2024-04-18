@@ -2,17 +2,27 @@
   "categories": [
     {
       "name": "Base",
-      "id": "Base",
+      "id": "base",
       "description": "A base é um item essencial no nécessaire, tendo como função uniformizar o tom da pele e suavizar pequenas imperfeições. Explore nossa seleção de base líquida, com maior ou menor cobertura, ação hidratante, efeito matte, proteção solar e muito mais."
     },
     {
       "name": "Bronzer",
-      "id": "Bronzer",
+      "id": "bronzer",
       "description": "Contorno e Bronzer Facial para maquiagem ajudam a criar profundidade, dar dimensão ao rosto e um efeito bronzeado incrível. Encontre aqui diversas opções e versões para garantir aquele contorno facial poderoso e um ar de bronzeado instantâneo."
     },
     {
       "name": "Blush",
-      "id": "Blush",
+      "id": "blush",
+      "description": "Blush para rosto faz parte do look e dá um ar de saúde para a maquiagem. Aqui você encontra opções diversas de tonalidades e acabamentos para criar efeitos de volume no rosto, definir contornos ou dar apenas uma corada natural."
+    },
+    {
+      "name": "Sombra",
+      "id": "sombra",
+      "description": "Blush para rosto faz parte do look e dá um ar de saúde para a maquiagem. Aqui você encontra opções diversas de tonalidades e acabamentos para criar efeitos de volume no rosto, definir contornos ou dar apenas uma corada natural."
+    },
+    {
+      "name": "Máscara",
+      "id": "mascara",
       "description": "Blush para rosto faz parte do look e dá um ar de saúde para a maquiagem. Aqui você encontra opções diversas de tonalidades e acabamentos para criar efeitos de volume no rosto, definir contornos ou dar apenas uma corada natural."
     }
   ]

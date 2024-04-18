@@ -6,7 +6,7 @@
       "brand": "Eudora",
       "price": 58.9,
       "category": "Base",
-      "image": "src/data/assets/foundation/base-niina-secrets.jpeg",
+      "image": "/public/assets/foundation/base-niina-secrets.jpeg",
       "id": 1
     },
     {
@@ -15,7 +15,7 @@
       "brand": "Bruna Tavares",
       "price": 57.9,
       "category": "Base",
-      "image": "src/data/assets/foundation/base-bruna-tavares.jpg",
+      "image": "/public/assets/foundation/base-bruna-tavares.jpg",
       "id": 2
     },
     {
@@ -24,7 +24,7 @@
       "brand": "Payot",
       "price": 49.9,
       "category": "Base",
-      "image": "src/data/assets/foundation/base-boca-rosa.jpg",
+      "image": "/public/assets/foundation/base-boca-rosa.jpg",
       "id": 3
     },
     {
@@ -33,7 +33,7 @@
       "brand": "Maybelline",
       "price": 109.9,
       "category": "Base",
-      "image": "src/data/assets/foundation/base-super-stay.jpg",
+      "image": "/public/assets/foundation/base-super-stay.jpg",
       "id": 4
     },
     {
@@ -42,7 +42,7 @@
       "brand": "Maybelline",
       "price": 45.99,
       "category": "Bronzer",
-      "image": "src/data/assets/bronzers/bronzer-fit-me.jpg",
+      "image": "/public/assets/bronzers/bronzer-fit-me.jpg",
       "id": 5
     },
     {
@@ -51,7 +51,7 @@
       "brand": "theBalm",
       "price": 202.9,
       "category": "Bronzer",
-      "image": "src/data/assets/bronzers/bronzer-bahama-mama.jpg",
+      "image": "/public/assets/bronzers/bronzer-bahama-mama.jpg",
       "id": 6
     },
     {
@@ -60,7 +60,7 @@
       "brand": "Benefit",
       "price": 210.9,
       "category": "Bronzer",
-      "image": "src/data/assets/bronzers/bronzer-hoola.jpg",
+      "image": "/public/assets/bronzers/bronzer-hoola.jpg",
       "id": 7
     },
     {
@@ -69,7 +69,7 @@
       "brand": "Wet n Wild",
       "price": 210.9,
       "category": "Bronzer",
-      "image": "src/data/assets/bronzers/bronzer-wet-n-wild.jpg",
+      "image": "/public/assets/bronzers/bronzer-wet-n-wild.jpg",
       "id": 8
     },
     {
@@ -78,7 +78,7 @@
       "brand": "Océane",
       "price": 54.9,
       "category": "Blush",
-      "image": "src/data/assets/blushes/blush-mariana.jpg",
+      "image": "/public/assets/blushes/blush-mariana.jpg",
       "id": 9
     },
     {
@@ -87,7 +87,7 @@
       "brand": "Eudora",
       "price": 52.9,
       "category": "Blush",
-      "image": "src/data/assets/blushes/blush-niina.jpg",
+      "image": "/public/assets/blushes/blush-niina.jpg",
       "id": 10
     },
     {
@@ -96,7 +96,7 @@
       "brand": "Dailus",
       "price": 27.9,
       "category": "Blush",
-      "image": "src/data/assets/blushes/blush-dailus.jpg",
+      "image": "/public/assets/blushes/blush-dailus.jpg",
       "id": 11
     },
     {
@@ -105,8 +105,80 @@
       "brand": "Bruna Tavares",
       "price": 74.9,
       "category": "Blush",
-      "image": "src/data/assets/blushes/blush-bruna-tavares.jpg",
+      "image": "/public/assets/blushes/blush-bruna-tavares.jpg",
       "id": 12
+    },
+    {
+      "title": "Paleta de Sombras Mariana Saad 9 Shades",
+      "description": "Apresenta 9 tons, sendo 5 opacos e 4 cintilantes. Estes tons foram selecionados para garantir a versatilidade em sua maquiagem.",
+      "brand": "Océane",
+      "price": 74.9,
+      "category": "Sombra",
+      "image": "/public/assets/eye-shadow/sombra-mariana.jpg",
+      "id": 13
+    },
+    {
+      "title": "Sombra Líquida Saphire",
+      "description": "Idealizada por Mariana Saad, traz muito brilho para sua make, perfeita para criar diferentes looks. ",
+      "brand": "Océane",
+      "price": 34.9,
+      "category": "Sombra",
+      "image": "/public/assets/eye-shadow/sombra-liquida-mariana.jpg",
+      "id": 14
+    },
+    {
+      "title": "Paleta de Sombras Ready For",
+      "description": "A paleta possui  20 tons, sendo 8 sombras metálicas, 5 opacas, e 7 glitters cremosos. São muitas opções e infinitas combinações.",
+      "brand": "Ruby Rose",
+      "price": 57.99,
+      "category": "Sombra",
+      "image": "/public/assets/eye-shadow/sombra-ruby-rose.jpg",
+      "id": 15
+    },
+    {
+      "title": "BT Marble Smokey Eyes",
+      "description": "Destaque e olhar com cores incrivelmente pigmentadas e secagem rápida. Possui textura cremosa, confortável e fácil de esfumar. ",
+      "brand": "Bruna Tavares",
+      "price": 75.9,
+      "category": "Sombra",
+      "image": "/public/assets/eye-shadow/sombra-bt.jpg",
+      "id": 16
+    },
+    {
+      "title": "Lash Sensational Sky High Cosmic Black",
+      "description": "Máscara de cílios lavável. Maybelline Lash Sensational Sky High garante o alongamento dos fios e um volume incrível.",
+      "brand": "Maybelline",
+      "price": 65.9,
+      "category": "Máscara",
+      "image": "/public/assets/mascara/lash-sensational.jpg",
+      "id": 17
+    },
+    {
+      "title": "Maybelline The Falsies",
+      "description": "Cílios mais preenchidos e longos por até 24 horas. A nova The Falsies Máscara Lavável não empelota e proporciona maior visibilidade aos fios.",
+      "brand": "Maybelline",
+      "price": 55.2,
+      "category": "Máscara",
+      "image": "/public/assets/mascara/falsies.jpg",
+      "id": 18
+    },
+    {
+      "title": "The Colossal Volum' Express",
+      "description": "Um produto inovador que transforma seus cílios! Com sua fórmula especial rica em colágeno e agentes espessantes.",
+      "brand": "Maybelline",
+      "price": 38.99,
+      "category": "Máscara",
+      "image": "/public/assets/mascara/colossal.jpg",
+      "id": 19
+    },
+    {
+      "title": "Eudora Soul Turbo 7.0",
+      "description": "Destaque e olhar com essa incrível máscara. Possui o pincel com acabamento siliconado e cerdas ultrafinas que alcançam até os menores fios. ",
+      "brand": "Eudora",
+      "price": 34.4,
+      "category": "Máscara",
+      "image": "/public/assets/mascara/mascara-eudora.jpg",
+      "id": 20
     }
   ]
 }

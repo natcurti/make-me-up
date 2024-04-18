@@ -1,5 +1,12 @@
+import ContainerProducts from "src/components/ContainerProducts";
+
 const Categories = () => {
-  return <div>Olá!</div>;
+  return (
+    <>
+      <h3>CATEGORIA</h3>
+      <ContainerProducts />
+    </>
+  );
 };
 
 export default Categories;
