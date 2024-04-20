@@ -24,7 +24,7 @@ const Header = () => {
             <Link to="/" className="img-container me-xl-2 focus-ring">
               <h1 className="m-0">
                 <img
-                  src="/public/assets/logo.png"
+                  src="/assets/logo.png"
                   className="img-fluid"
                   alt="Logo escrito make me up, em tons de rosa e roxo."
                 />

@@ -18,12 +18,32 @@
     {
       "name": "Sombra",
       "id": "sombra",
-      "description": "Blush para rosto faz parte do look e dá um ar de saúde para a maquiagem. Aqui você encontra opções diversas de tonalidades e acabamentos para criar efeitos de volume no rosto, definir contornos ou dar apenas uma corada natural."
+      "description": "A Sombra e Pigmento para Olhos são essenciais para a maquiagem. A sombra destaca o olhar com cores variadas para looks criativos e com lindos efeitos e o pigmento é uma opção de cor ainda mais intensa do que a sombra e o glitter, sendo indicado para looks mais dramáticos ou aquela festa ou evento especial. Escolha o que mais combina com você!"
     },
     {
       "name": "Máscara",
       "id": "mascara",
-      "description": "Blush para rosto faz parte do look e dá um ar de saúde para a maquiagem. Aqui você encontra opções diversas de tonalidades e acabamentos para criar efeitos de volume no rosto, definir contornos ou dar apenas uma corada natural."
+      "description": "Máscara de Cílios para definir, alongar, dar curvatura e volume aos cílios. Confira as melhores Máscara para Cílios nacionais e importadas aqui para destacar e deixar seu olhar ainda mais marcante."
+    },
+    {
+      "name": "Lápis",
+      "id": "lapis",
+      "description": "Delineador e Lápis de Olho conta com diversas texturas e traços com opções à prova d'água. São produtos perfeitos para marcar o seu olhar e deixar seus olhos ainda mais sedutores e belos."
+    },
+    {
+      "name": "Sobrancelha",
+      "id": "sobrancelha",
+      "description": "Maquiagem para Sobrancelhas traz itens para definir o formato, corrigir falhas e realçar o tom dos fios. Encontre lápis de sobrancelha, pincel, primer e sombra para destacar o olhar com sobrancelhas delineadas, preenchidas e com efeito natural."
+    },
+    {
+      "name": "Batom",
+      "id": "batom",
+      "description": "Seleção de Batom com as melhores marcas importadas e nacionais. Vários efeitos como matte (fosco), metálico, cremoso, cintilante e diversas cores pra acompanhar as tendências da moda. Escolha o que mais combina com você!"
+    },
+    {
+      "name": "Lápis de boca",
+      "id": "lapis de boca",
+      "description": "O Lápis de Boca e Delineador são fundamentais para criar uma boca que vai chamar atenção. Eles definem os contornos da boca, preenchem fissuras e fazem o batom durar mais tempo. Confira as melhores opções aqui e compre já!"
     }
   ]
 }
