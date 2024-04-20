@@ -5,7 +5,7 @@ const CarouselHome = () => {
   return (
     <Carousel fade>
       <CarouselItem>
-        <div className="container-banner-01"></div>
+        <div className="container-banner-01 rounded-3"></div>
         <CarouselCaption>
           <h2 className="text-uppercase m-0 title">Make Me Up</h2>
           <h3 className="m-0 subtitle">Sua beleza, nossa paixão!</h3>
@@ -17,7 +17,7 @@ const CarouselHome = () => {
         </CarouselCaption>
       </CarouselItem>
       <CarouselItem>
-        <div className="container-banner-02"></div>
+        <div className="container-banner-02 rounded-3"></div>
         <CarouselCaption>
           <h2 className="text-uppercase m-0 title">Make Me Up</h2>
           <h3 className="m-0 subtitle">Expresse sua beleza única!</h3>
@@ -29,7 +29,7 @@ const CarouselHome = () => {
         </CarouselCaption>
       </CarouselItem>
       <CarouselItem>
-        <div className="container-banner-03"></div>
+        <div className="container-banner-03 rounded-3"></div>
         <CarouselCaption>
           <h2 className="text-uppercase m-0 title">Make Me Up</h2>
           <h3 className="m-0 subtitle">Uma experiência de beleza!</h3>

@@ -11,7 +11,7 @@ interface ICardBenefits {
 
 const CardBenefits = ({ title, text, Icon }: ICardBenefits) => {
   return (
-    <Card border="secondary" className="container-card-benefits g-0 p-0">
+    <Card border="secondary-subtle" className="container-card-benefits g-0 p-0">
       <Card.Body className="d-flex justify-content-between align-items-center gap-3">
         {Icon && <Icon size={75} />}
         <div style={{ width: "85%" }}>

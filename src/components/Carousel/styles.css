@@ -1,17 +1,17 @@
 .container-banner-01 {
-  background: url(/public/assets/banner-1.jpg);
+  background: url(/assets/banner-1.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .container-banner-02 {
-  background: url(/public/assets/banner-2.jpg);
+  background: url(/assets/banner-2.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .container-banner-03 {
-  background: url(/public/assets/banner-3.jpg);
+  background: url(/assets/banner-3.jpg);
   background-size: cover;
   background-position: center;
 }
