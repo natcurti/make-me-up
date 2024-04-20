@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DefaultPage />}>
-          <Route index element={<Home />} />
-          <Route path="categorias/:categoryName" element={<Categories />} />
+          {/* <Route index element={<Home />} />
+          <Route path="categorias/:categoryName" element={<Categories />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

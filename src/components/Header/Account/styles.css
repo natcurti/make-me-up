@@ -1,0 +1,33 @@
+.btn-login {
+  background-color: transparent;
+  color: var(--pink);
+  border: none;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-login:hover,
+.btn-sign-in:hover {
+  background-color: var(--pink);
+  color: white;
+}
+
+.btn-login:focus,
+.btn-sign-in:focus {
+  background-color: var(--pink);
+  color: white;
+}
+
+.btn-sign-in {
+  background-color: var(--purple);
+  color: var(--white);
+  border: 0;
+  width: 90%;
+}
+
+.container-new-account {
+  color: var(--gray);
+  padding-inline: 0.5rem;
+  font-size: 0.85rem;
+}

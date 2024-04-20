@@ -7,7 +7,7 @@ const DefaultPage = () => {
     <>
       <Header />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

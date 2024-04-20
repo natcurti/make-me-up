@@ -1,0 +1,36 @@
+.link-new-account {
+  text-decoration: none;
+  color: var(--purple);
+}
+
+.link-new-account:hover {
+  text-decoration: underline;
+}
+
+.link-dropdown,
+.link-account {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  color: var(--pink);
+  padding-inline: 0.5rem;
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.link-dropdown:first-child {
+  border-top-right-radius: 0.375rem;
+  border-top-left-radius: 0.375rem;
+}
+
+.link-dropdown:last-child,
+.link-account:last-child {
+  border-bottom-right-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+.link-dropdown:hover,
+.link-account:hover {
+  background-color: var(--purple);
+  color: var(--white);
+}
