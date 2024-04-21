@@ -43,7 +43,7 @@ const NavBarContainer = () => {
               <NavDropdown title="Rosto">
                 <div className="d-flex flex-column shadow-sm rounded-1 container-dropdown-links">
                   {face.map((item) => (
-                    <NavDropdown.Item as={"span"}>
+                    <NavDropdown.Item as={"span"} key={item.id}>
                       <LinkDropDown
                         key={item.id}
                         to={`/categorias/${item.id}`}
@@ -58,7 +58,7 @@ const NavBarContainer = () => {
               <NavDropdown title="Olhos">
                 <div className="d-flex flex-column shadow-sm rounded-1 container-dropdown-links">
                   {eyes.map((item) => (
-                    <NavDropdown.Item as={"span"}>
+                    <NavDropdown.Item as={"span"} key={item.id}>
                       <LinkDropDown
                         key={item.id}
                         to={`/categorias/${item.id}`}
@@ -73,7 +73,7 @@ const NavBarContainer = () => {
               <NavDropdown title="Boca">
                 <div className="d-flex flex-column shadow-sm rounded-1 container-dropdown-links">
                   {mouth.map((item) => (
-                    <NavDropdown.Item as={"span"}>
+                    <NavDropdown.Item as={"span"} key={item.id}>
                       <LinkDropDown
                         key={item.id}
                         to={`/categorias/${item.id}`}
