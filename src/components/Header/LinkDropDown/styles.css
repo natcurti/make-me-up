@@ -18,13 +18,13 @@
   font-size: 1.15rem;
 }
 
-.link-dropdown:first-child {
+.container-dropdown-links > span:first-child .link-dropdown {
   border-top-right-radius: 0.375rem;
   border-top-left-radius: 0.375rem;
 }
 
-.link-dropdown:last-child,
-.link-account:last-child {
+.container-dropdown-links > span:last-child .link-dropdown,
+.container-dropdown-account > span:last-child .link-account {
   border-bottom-right-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
 }

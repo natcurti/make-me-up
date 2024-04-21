@@ -34,45 +34,54 @@ const NavBarContainer = () => {
         <Navbar.Collapse id="navbarScroll" className="justify-content-around">
           <div className="d-flex flex-column flex-xl-row justify-content-xl-around gap-2 container-nav-and-input">
             <Nav navbarScroll className="text-nav gap-xl-3">
-              <Link to="/" className="link-home focus-ring">
-                Home
-              </Link>
-              <NavDropdown title="Rosto" id="navbarScrollingDropdown">
-                <div className="d-flex flex-column shadow-sm rounded-1">
+              <Nav.Link as={"span"}>
+                <Link to="/" className="link-home focus-ring">
+                  Home
+                </Link>
+              </Nav.Link>
+
+              <NavDropdown title="Rosto">
+                <div className="d-flex flex-column shadow-sm rounded-1 container-dropdown-links">
                   {face.map((item) => (
-                    <LinkDropDown
-                      key={item.id}
-                      to={`/categorias/${item.id}`}
-                      type="dropdown"
-                    >
-                      {item.name}
-                    </LinkDropDown>
+                    <NavDropdown.Item as={"span"}>
+                      <LinkDropDown
+                        key={item.id}
+                        to={`/categorias/${item.id}`}
+                        type="dropdown"
+                      >
+                        {item.name}
+                      </LinkDropDown>
+                    </NavDropdown.Item>
                   ))}
                 </div>
               </NavDropdown>
-              <NavDropdown title="Olhos" id="navbarScrollingDropdown">
-                <div className="d-flex flex-column shadow-sm rounded-1">
+              <NavDropdown title="Olhos">
+                <div className="d-flex flex-column shadow-sm rounded-1 container-dropdown-links">
                   {eyes.map((item) => (
-                    <LinkDropDown
-                      key={item.id}
-                      to={`/categorias/${item.id}`}
-                      type="dropdown"
-                    >
-                      {item.name}
-                    </LinkDropDown>
+                    <NavDropdown.Item as={"span"}>
+                      <LinkDropDown
+                        key={item.id}
+                        to={`/categorias/${item.id}`}
+                        type="dropdown"
+                      >
+                        {item.name}
+                      </LinkDropDown>
+                    </NavDropdown.Item>
                   ))}
                 </div>
               </NavDropdown>
-              <NavDropdown title="Boca" id="navbarScrollingDropdown">
-                <div className="d-flex flex-column shadow-sm rounded-1">
+              <NavDropdown title="Boca">
+                <div className="d-flex flex-column shadow-sm rounded-1 container-dropdown-links">
                   {mouth.map((item) => (
-                    <LinkDropDown
-                      key={item.id}
-                      to={`/categorias/${item.id}`}
-                      type="dropdown"
-                    >
-                      {item.name}
-                    </LinkDropDown>
+                    <NavDropdown.Item as={"span"}>
+                      <LinkDropDown
+                        key={item.id}
+                        to={`/categorias/${item.id}`}
+                        type="dropdown"
+                      >
+                        {item.name}
+                      </LinkDropDown>
+                    </NavDropdown.Item>
                   ))}
                 </div>
               </NavDropdown>

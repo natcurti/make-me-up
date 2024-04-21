@@ -15,19 +15,10 @@
 
 .container-nav-and-input {
   width: 100%;
-  @media (min-width: 992px) {
-    width: 60%;
-  }
-  @media (min-width: 1200px) {
-    width: 100%;
-  }
 }
 
 .text-nav {
   font-size: 18px;
-  @media (min-width: 1200px) {
-    font-size: 20px;
-  }
 }
 
 .btn-search {
@@ -42,4 +33,18 @@
 
 .btn-search:focus {
   background-color: var(--pink);
+}
+
+@media (min-width: 992px) {
+  .container-nav-and-input {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .container-nav-and-input {
+    width: 100%;
+  }
+  .text-nav {
+    font-size: 20px;
+  }
 }

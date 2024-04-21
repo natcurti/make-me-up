@@ -24,6 +24,14 @@ body {
   border: none;
 }
 
+.dropdown-item {
+  all: unset;
+}
+
+.dropdown-item:hover {
+  all: unset;
+}
+
 .nav-link {
   color: var(--gray);
   text-decoration: none;
