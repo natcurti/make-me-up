@@ -21,9 +21,9 @@ const Categories = () => {
   const { name, description } = category[0];
 
   return (
-    <div className="container-xxl mt-3">
+    <div className="container-xxl mt-3 mx-auto">
       <BannerCategory title={name} />
-      <div>{description}</div>
+      <h3 className="w-75 fs-5 mx-auto text-center my-3">{description}</h3>
       <ContainerProducts>
         {itemsToShow.map((item) => (
           <Product key={item.id} {...item} />

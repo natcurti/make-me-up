@@ -1,8 +1,17 @@
+.container-footer,
 .footer {
   background-color: var(--dark);
+}
+
+.footer {
   min-height: 30rem;
   margin-top: 7rem;
   color: var(--white);
+  max-width: 1500px;
+}
+
+.footer-title {
+  font-family: var(--font-secondary);
 }
 
 .footer-list {
@@ -13,23 +22,19 @@
   gap: 0.25rem;
 }
 
-.footer-list-products {
-  padding-inline-start: 1.25rem;
+.link-categories-footer {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0;
+  transition: all 0.5s ease-in;
 }
 
-.footer-list-products li {
-  position: relative;
-  display: flex;
-  align-items: center;
+.link-categories-footer:hover {
+  color: var(--pink);
+  letter-spacing: 0.1rem;
 }
 
-.footer-list-products li::before {
-  content: "";
-  position: absolute;
-  width: 0.85rem;
-  height: 0.85rem;
-  left: -20px;
-  background-image: url("/public/assets/arrow-right.png");
-  background-size: 8px;
-  background-repeat: no-repeat;
+.container-contact li a {
+  color: white;
+  text-decoration: none;
 }
