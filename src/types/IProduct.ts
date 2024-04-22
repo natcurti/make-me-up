@@ -6,4 +6,5 @@ export interface IProduct {
   category: string;
   image: string;
   id: number;
+  favorite: boolean;
 }

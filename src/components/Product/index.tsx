@@ -1,10 +1,26 @@
 import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 import ButtonIcon from "../ButtonIcon";
-import { Heart, Cart2 } from "react-bootstrap-icons";
+import { Heart, HeartFill, Cart2 } from "react-bootstrap-icons";
 import { IProduct } from "src/types/IProduct";
+import { useDispatch } from "react-redux";
+import { changeFavorite } from "src/store/reducers/items";
 
-const Product = ({ title, description, brand, price, image }: IProduct) => {
+const Product = ({
+  title,
+  description,
+  brand,
+  price,
+  image,
+  id,
+  favorite,
+}: IProduct) => {
+  const dispatch = useDispatch();
+
+  const handleFavorite = (id: number) => {
+    dispatch(changeFavorite(id));
+  };
+
   return (
     <Card className="container-card">
       <div className="mx-auto mt-3">
@@ -26,8 +42,8 @@ const Product = ({ title, description, brand, price, image }: IProduct) => {
             Comprar
             <Cart2 size={18} />
           </Button>
-          <ButtonIcon>
-            <Heart size={25} />
+          <ButtonIcon onClick={() => handleFavorite(id)}>
+            {favorite ? <HeartFill size={25} /> : <Heart size={25} />}
           </ButtonIcon>
         </div>
       </Card.Body>

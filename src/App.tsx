@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import DefaultPage from "./pages/DefaultPage";
 import Categories from "./pages/Categories";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Route path="/" element={<DefaultPage />}>
           <Route index element={<Home />} />
           <Route path="categorias/:categoryName" element={<Categories />} />
-          <Route path="/favoritos" element={<Categories />} />
+          <Route path="/favoritos" element={<Favorites />} />
         </Route>
       </Routes>
     </BrowserRouter>

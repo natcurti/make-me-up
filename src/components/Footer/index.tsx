@@ -17,8 +17,6 @@ const Footer = () => {
     };
   });
 
-  console.log(categories);
-
   return (
     <div className="w-100 container-footer">
       <footer className="footer py-5 mx-auto">
@@ -30,7 +28,7 @@ const Footer = () => {
             <p className="fs-3 footer-title">Nossos Produtos</p>
             <ul className="footer-list footer-list-products">
               {categories.map((category) => (
-                <span>
+                <span key={category.id}>
                   <li>
                     <Link
                       to={`/categorias/${category.id}`}
