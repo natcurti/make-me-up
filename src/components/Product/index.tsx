@@ -1,7 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 import ButtonIcon from "../ButtonIcon";
-import { Heart, HeartFill, Cart2 } from "react-bootstrap-icons";
+import { Heart, HeartFill, Cart2, Trash } from "react-bootstrap-icons";
 import { IProduct } from "src/types/IProduct";
 import { useDispatch } from "react-redux";
 import { changeFavorite } from "src/store/reducers/items";
@@ -34,7 +34,11 @@ const Product = ({
       <div className="mx-auto mt-3">
         <img src={image} />
       </div>
-      <Card.Body className="d-flex flex-column justify-content-between">
+      <Card.Body
+        className={`${
+          isOnCart && "px-0"
+        } ${"d-flex flex-column justify-content-between"}`}
+      >
         <div>
           <Card.Title className="card-title fw-bold">
             {brand.toUpperCase()}
@@ -58,6 +62,11 @@ const Product = ({
           <ButtonIcon onClick={() => handleFavorite(id)}>
             {favorite ? <HeartFill size={25} /> : <Heart size={25} />}
           </ButtonIcon>
+          {isOnCart && (
+            <ButtonIcon isIconOnCart>
+              <Trash size={25} />
+            </ButtonIcon>
+          )}
         </div>
       </Card.Body>
     </Card>
