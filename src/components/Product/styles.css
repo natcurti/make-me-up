@@ -25,3 +25,17 @@
 .card-subtitle {
   color: var(--dark-purple);
 }
+
+/* Styles to apply on Cart */
+
+.container-card-cart {
+  width: 100%;
+  flex-direction: row;
+  padding-inline: 1rem;
+}
+
+.container-card-cart img {
+  width: 7rem;
+  height: 7rem;
+  object-fit: contain;
+}
