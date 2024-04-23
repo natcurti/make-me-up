@@ -3,10 +3,10 @@ import "./styles.css";
 import ButtonIcon from "../ButtonIcon";
 import { Heart, HeartFill, Cart2 } from "react-bootstrap-icons";
 import { IProduct } from "src/types/IProduct";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { changeFavorite } from "src/store/reducers/items";
 import { addProductToCart } from "src/store/reducers/cart";
-import { IRootState } from "src/store";
+import { openOrClose } from "src/store/reducers/offcanvasCart";
 
 const Product = ({
   title,
@@ -16,6 +16,7 @@ const Product = ({
   image,
   id,
   favorite,
+  isOnCart = false,
 }: IProduct) => {
   const dispatch = useDispatch();
 
@@ -25,12 +26,9 @@ const Product = ({
 
   const addToCart = (id: number) => {
     dispatch(addProductToCart(id));
+    dispatch(openOrClose());
   };
 
-  const isOnCart = useSelector((state: IRootState) =>
-    state.cart.some((itemOnCart) => itemOnCart.id === id)
-  );
-  console.log(isOnCart);
   return (
     <Card className={`${isOnCart ? "container-card-cart" : "container-card"}`}>
       <div className="mx-auto mt-3">

@@ -7,4 +7,5 @@ export interface IProduct {
   image: string;
   id: number;
   favorite: boolean;
+  isOnCart?: boolean;
 }

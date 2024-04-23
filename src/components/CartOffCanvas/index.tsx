@@ -35,7 +35,7 @@ const CartOffCanvas = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           {productsOnCart.map((product) => (
-            <Product key={product.id} {...product} />
+            <Product key={product.id} {...product} isOnCart />
           ))}
         </Offcanvas.Body>
       </Offcanvas>
