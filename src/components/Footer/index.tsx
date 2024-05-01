@@ -7,15 +7,12 @@ import { IRootState } from "src/store";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const { categories } = useSelector((state: IRootState) => {
-    return {
-      categories: [
-        ...state.categories.face,
-        ...state.categories.eyes,
-        ...state.categories.mouth,
-      ],
-    };
-  });
+  const categories = useSelector((state: IRootState) => state.categories);
+  const allCategoriesToShow = [
+    ...categories.face,
+    ...categories.eyes,
+    ...categories.mouth,
+  ];
 
   return (
     <div className="w-100 container-footer">
@@ -27,7 +24,7 @@ const Footer = () => {
           <Col sm={6} md={3}>
             <p className="fs-3 footer-title">Nossos Produtos</p>
             <ul className="footer-list footer-list-products">
-              {categories.map((category) => (
+              {allCategoriesToShow.map((category) => (
                 <span key={category.id}>
                   <li>
                     <Link

@@ -8,4 +8,5 @@ export interface IProduct {
   id: number;
   favorite: boolean;
   isOnCart?: boolean;
+  quantity?: number;
 }

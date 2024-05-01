@@ -21,9 +21,18 @@ const sliceCart = createSlice({
         state[productIndexOnCart].quantity += 1;
       }
     },
+    updateQuantity: (state, { payload }) => {
+      const index = state.findIndex((product) => product.id === payload.id);
+      state[index].quantity += payload.quantity;
+    },
+    deleteItem: (state, { payload }) => {
+      const index = state.findIndex((product) => product.id === payload.id);
+      state.splice(index, 1);
+    },
   },
 });
 
-export const { addProductToCart } = sliceCart.actions;
+export const { addProductToCart, updateQuantity, deleteItem } =
+  sliceCart.actions;
 
 export default sliceCart.reducer;

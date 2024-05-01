@@ -1,11 +1,22 @@
 import { Button, Card } from "react-bootstrap";
 import "./styles.css";
 import ButtonIcon from "../ButtonIcon";
-import { Heart, HeartFill, Cart2, Trash } from "react-bootstrap-icons";
+import {
+  Heart,
+  HeartFill,
+  Cart2,
+  Trash,
+  PlusCircle,
+  DashCircle,
+} from "react-bootstrap-icons";
 import { IProduct } from "src/types/IProduct";
 import { useDispatch } from "react-redux";
 import { changeFavorite } from "src/store/reducers/items";
-import { addProductToCart } from "src/store/reducers/cart";
+import {
+  addProductToCart,
+  deleteItem,
+  updateQuantity,
+} from "src/store/reducers/cart";
 import { openOrClose } from "src/store/reducers/offcanvasCart";
 
 const Product = ({
@@ -17,6 +28,7 @@ const Product = ({
   id,
   favorite,
   isOnCart = false,
+  quantity,
 }: IProduct) => {
   const dispatch = useDispatch();
 
@@ -30,7 +42,9 @@ const Product = ({
   };
 
   return (
-    <Card className={`${isOnCart ? "container-card-cart" : "container-card"}`}>
+    <Card
+      className={`${isOnCart ? "container-card-cart mb-3" : "container-card"}`}
+    >
       <div className="mx-auto mt-3">
         <img src={image} />
       </div>
@@ -52,18 +66,42 @@ const Product = ({
           </Card.Text>
         </div>
         <div className="d-flex justify-content-between">
-          <Button
-            className="d-flex align-items-center gap-2 border-0 btn-buy"
-            onClick={() => addToCart(id)}
-          >
-            Comprar
-            <Cart2 size={18} />
-          </Button>
+          {isOnCart ? (
+            <div className="d-flex align-items-center">
+              <ButtonIcon
+                onClick={() => {
+                  if (quantity && quantity >= 1) {
+                    dispatch(updateQuantity({ id: id, quantity: -1 }));
+                  }
+                }}
+              >
+                <DashCircle size={25} />
+              </ButtonIcon>
+              <p className="mb-0 fw-bold fs-5">
+                {String(0 || quantity).padStart(2, "0")}
+              </p>
+              <ButtonIcon
+                onClick={() =>
+                  dispatch(updateQuantity({ id: id, quantity: 1 }))
+                }
+              >
+                <PlusCircle size={25} />
+              </ButtonIcon>
+            </div>
+          ) : (
+            <Button
+              className="d-flex align-items-center gap-2 border-0 btn-buy"
+              onClick={() => addToCart(id)}
+            >
+              Comprar
+              <Cart2 size={18} />
+            </Button>
+          )}
           <ButtonIcon onClick={() => handleFavorite(id)}>
             {favorite ? <HeartFill size={25} /> : <Heart size={25} />}
           </ButtonIcon>
           {isOnCart && (
-            <ButtonIcon isIconOnCart>
+            <ButtonIcon isIconOnCart onClick={() => dispatch(deleteItem(id))}>
               <Trash size={25} />
             </ButtonIcon>
           )}

@@ -31,6 +31,7 @@
 .container-card-cart {
   width: 100%;
   flex-direction: row;
+  gap: 1rem;
   padding-inline: 1rem;
 }
 

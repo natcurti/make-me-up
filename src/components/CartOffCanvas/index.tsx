@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "src/store";
 import Product from "../Product";
 import { openOrClose } from "src/store/reducers/offcanvasCart";
+import { IProduct } from "src/types/IProduct";
 
 const CartOffCanvas = () => {
   const dispatch = useDispatch();
@@ -13,15 +14,31 @@ const CartOffCanvas = () => {
     dispatch(openOrClose());
   };
 
-  const { productsOnCart, isOpen } = useSelector((state: IRootState) => {
-    const idItemsOnCart = state.cart.map((item) => item.id);
+  const { productsOnCart, isOpen, total } = useSelector((state: IRootState) => {
+    let total = 0;
+    const productsOnCart = state.cart.reduce<IProduct[]>(
+      (items, itemOnCart) => {
+        const product = state.items.find((item) => item.id === itemOnCart.id);
+        if (product) {
+          total += product.price * itemOnCart.quantity;
+          items.push({
+            ...product,
+            quantity: itemOnCart.quantity,
+          });
+        }
+        return items;
+      },
+      []
+    );
+
     return {
-      productsOnCart: state.items.filter((product) =>
-        idItemsOnCart.some((item) => item === product.id)
-      ),
+      productsOnCart,
       isOpen: state.offcanvasCart,
+      total,
     };
   });
+
+  console.log(productsOnCart, total);
 
   return (
     <>
@@ -33,10 +50,13 @@ const CartOffCanvas = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Carrinho de Compras</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
+        <Offcanvas.Body className="d-flex flex-column justify-content-between">
           {productsOnCart.map((product) => (
             <Product key={product.id} {...product} isOnCart />
           ))}
+          <div>
+            <p>Total: {total.toFixed(2)} </p>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>
