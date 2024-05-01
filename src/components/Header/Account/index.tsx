@@ -58,7 +58,7 @@ const Account = () => {
           </div>
         </Dropdown.Menu>
       </Dropdown>
-      <ButtonIcon>
+      <ButtonIcon onClick={() => navigate("/favoritos")}>
         <Heart size={25} />
       </ButtonIcon>
       <CartOffCanvas />
