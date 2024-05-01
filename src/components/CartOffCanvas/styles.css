@@ -1,8 +1,9 @@
-.btn-icon,
-.btn-icon:focus {
-  color: var(--pink);
+.btn-end-purchase,
+.btn-end-purchase:focus {
+  background-color: var(--pink);
+  border: none;
 }
 
-.btn-icon:hover {
-  color: var(--purple);
+.btn-end-purchase:hover {
+  background-color: var(--purple);
 }

@@ -1,4 +1,4 @@
-import { Offcanvas } from "react-bootstrap";
+import { Button, Offcanvas } from "react-bootstrap";
 import ButtonIcon from "../ButtonIcon";
 import { Cart2 } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import { IRootState } from "src/store";
 import Product from "../Product";
 import { openOrClose } from "src/store/reducers/offcanvasCart";
 import { IProduct } from "src/types/IProduct";
+import "./styles.css";
 
 const CartOffCanvas = () => {
   const dispatch = useDispatch();
@@ -54,8 +55,9 @@ const CartOffCanvas = () => {
           {productsOnCart.map((product) => (
             <Product key={product.id} {...product} isOnCart />
           ))}
-          <div>
-            <p>Total: {total.toFixed(2)} </p>
+          <div className="d-flex flex-column">
+            <p className="fw-bold fs-5">Total: {total.toFixed(2)} </p>
+            <Button className="btn-end-purchase">Finalizar compra</Button>
           </div>
         </Offcanvas.Body>
       </Offcanvas>

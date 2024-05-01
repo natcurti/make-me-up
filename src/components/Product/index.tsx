@@ -67,11 +67,14 @@ const Product = ({
         </div>
         <div className="d-flex justify-content-between">
           {isOnCart ? (
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center gap-3">
               <ButtonIcon
+                isIconOnCart
                 onClick={() => {
-                  if (quantity && quantity >= 1) {
-                    dispatch(updateQuantity({ id: id, quantity: -1 }));
+                  if (quantity) {
+                    if (quantity > 1)
+                      dispatch(updateQuantity({ id: id, quantity: -1 }));
+                    if (quantity === 1) dispatch(deleteItem(id));
                   }
                 }}
               >
@@ -81,6 +84,7 @@ const Product = ({
                 {String(0 || quantity).padStart(2, "0")}
               </p>
               <ButtonIcon
+                isIconOnCart
                 onClick={() =>
                   dispatch(updateQuantity({ id: id, quantity: 1 }))
                 }
