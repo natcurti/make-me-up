@@ -6,7 +6,7 @@ export const productsListener = createListenerMiddleware();
 
 productsListener.startListening({
   actionCreator: getItems,
-  effect: async (_action, { dispatch, fork }) => {
+  effect: async (_action, { dispatch, fork, unsubscribe }) => {
     const task = fork(async () => {
       return await serviceProducts.getProducts();
     });
@@ -14,6 +14,7 @@ productsListener.startListening({
     const response = await task.result;
     if (response.status === "ok") {
       dispatch(addProducts(response.value.products));
+      unsubscribe();
     }
   },
 });

@@ -3,6 +3,7 @@ import CarouselHome from "src/components/Carousel";
 import ContainerCardsBenefits from "src/components/ContainerCardsBenefits";
 import ContainerProducts from "src/components/ContainerProducts";
 import Product from "src/components/Product";
+import { getCategories } from "src/store/reducers/categories";
 import { getItems } from "src/store/reducers/items";
 import { useAppDispatch, useAppSelector } from "src/types/hooks";
 
@@ -13,6 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getItems());
+    dispatch(getCategories());
   }, [dispatch]);
 
   return (

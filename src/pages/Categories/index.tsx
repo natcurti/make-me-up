@@ -1,24 +1,40 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BannerCategory from "src/components/BannerCategory";
 import ContainerProducts from "src/components/ContainerProducts";
 import Product from "src/components/Product";
-import { IRootState } from "src/store";
+import { getCategories } from "src/store/reducers/categories";
+import { getItems } from "src/store/reducers/items";
+import { useAppDispatch, useAppSelector } from "src/types/hooks";
 
 const Categories = () => {
   const { categoryName } = useParams();
+  const dispatch = useAppDispatch();
 
-  const { itemsToShow, allCategories } = useSelector((state: IRootState) => ({
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getItems());
+  }, [dispatch]);
+
+  const { itemsToShow, allCategories } = useAppSelector((state) => ({
     itemsToShow: state.items.filter((item) => item.category === categoryName),
-    allCategories: [
-      ...state.categories.face,
-      ...state.categories.eyes,
-      ...state.categories.mouth,
-    ],
+    allCategories: state.categories,
   }));
 
-  const category = allCategories.filter((item) => item.id === categoryName);
-  const { name, description } = category[0];
+  useEffect(() => {}, [allCategories]);
+
+  console.log(itemsToShow, allCategories);
+
+  const categoriesArray = [];
+  categoriesArray.push(
+    ...allCategories.face,
+    ...allCategories.eyes,
+    ...allCategories.mouth
+  );
+
+  const category = categoriesArray.filter((item) => item.id === categoryName);
+  console.log(itemsToShow);
+  const { name, description } = category[0] || [];
 
   return (
     <div className="container-xxl mt-3 mx-auto">
