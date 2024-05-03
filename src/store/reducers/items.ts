@@ -1,8 +1,9 @@
-import data from "src/data/products.json";
-import { createSlice } from "@reduxjs/toolkit";
+import { createAction, createSlice } from "@reduxjs/toolkit";
 import { IProduct } from "src/types/IProduct";
 
-const initialState: IProduct[] = data.products;
+export const getItems = createAction("items/getItems");
+
+const initialState: IProduct[] = [];
 
 const sliceItems = createSlice({
   name: "items",
@@ -16,9 +17,12 @@ const sliceItems = createSlice({
         return item;
       });
     },
+    addProducts: (state, { payload }) => {
+      state.push(...payload);
+    },
   },
 });
 
-export const { changeFavorite } = sliceItems.actions;
+export const { changeFavorite, addProducts } = sliceItems.actions;
 
 export default sliceItems.reducer;

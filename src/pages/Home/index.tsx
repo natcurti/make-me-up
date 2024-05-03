@@ -1,13 +1,19 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import CarouselHome from "src/components/Carousel";
 import ContainerCardsBenefits from "src/components/ContainerCardsBenefits";
 import ContainerProducts from "src/components/ContainerProducts";
 import Product from "src/components/Product";
-import { IRootState } from "src/store";
+import { getItems } from "src/store/reducers/items";
+import { useAppDispatch, useAppSelector } from "src/types/hooks";
 
 const Home = () => {
-  const itemsOnStore = useSelector((state: IRootState) => state.items);
+  const itemsOnStore = useAppSelector((state) => state.items);
   const itemsToShow = itemsOnStore.slice(0, 12);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getItems());
+  }, [dispatch]);
 
   return (
     <div className="container-xxl mt-3">

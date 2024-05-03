@@ -39,8 +39,6 @@ const CartOffCanvas = () => {
     };
   });
 
-  console.log(productsOnCart, total);
-
   return (
     <>
       <ButtonIcon onClick={handleOpen}>

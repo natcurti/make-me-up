@@ -3,6 +3,8 @@ import sliceItems from "src/store/reducers/items";
 import sliceCategories from "src/store/reducers/categories";
 import sliceCart from "src/store/reducers/cart";
 import sliceOffcanvasCart from "src/store/reducers/offcanvasCart";
+import { categoriesListener } from "./middlewares/categories";
+import { productsListener } from "./middlewares/products";
 
 const store = configureStore({
   reducer: {
@@ -11,8 +13,14 @@ const store = configureStore({
     cart: sliceCart,
     offcanvasCart: sliceOffcanvasCart,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().prepend(
+      categoriesListener.middleware,
+      productsListener.middleware
+    ),
 });
 
 export default store;
 
-export type IRootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

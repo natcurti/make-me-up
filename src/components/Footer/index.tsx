@@ -2,17 +2,13 @@ import { Col, Row } from "react-bootstrap";
 import { HiChevronRight, HiOutlineMail } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import "./styles.css";
-import { useSelector } from "react-redux";
-import { IRootState } from "src/store";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "src/types/hooks";
 
 const Footer = () => {
-  const categories = useSelector((state: IRootState) => state.categories);
-  const allCategoriesToShow = [
-    ...categories.face,
-    ...categories.eyes,
-    ...categories.mouth,
-  ];
+  const { face, eyes, mouth } = useAppSelector((state) => state.categories);
+  const allCategoriesToShow = [];
+  allCategoriesToShow.push(...face, ...eyes, ...mouth);
 
   return (
     <div className="w-100 container-footer">
@@ -24,8 +20,8 @@ const Footer = () => {
           <Col sm={6} md={3}>
             <p className="fs-3 footer-title">Nossos Produtos</p>
             <ul className="footer-list footer-list-products">
-              {allCategoriesToShow.map((category) => (
-                <span key={category.id}>
+              {allCategoriesToShow.map((category, index) => (
+                <span key={index}>
                   <li>
                     <Link
                       to={`/categorias/${category.id}`}

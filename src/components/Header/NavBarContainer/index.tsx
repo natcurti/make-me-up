@@ -9,14 +9,19 @@ import {
 import { Search } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import { useSelector } from "react-redux";
-import { IRootState } from "src/store";
 import LinkDropDown from "../LinkDropDown";
+import { useAppDispatch, useAppSelector } from "src/types/hooks";
+import { useEffect } from "react";
+import { getCategories } from "src/store/reducers/categories";
 
 const NavBarContainer = () => {
-  const { face, eyes, mouth } = useSelector(
-    (state: IRootState) => state.categories
-  );
+  const { face, eyes, mouth } = useAppSelector((state) => state.categories);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   return (
     <Navbar expand="lg" style={{ width: "80%" }}>
