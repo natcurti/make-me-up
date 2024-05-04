@@ -1,21 +1,20 @@
 import { Button, Offcanvas } from "react-bootstrap";
 import ButtonIcon from "../ButtonIcon";
 import { Cart2 } from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
-import { IRootState } from "src/store";
 import Product from "../Product";
 import { openOrClose } from "src/store/reducers/offcanvasCart";
 import { IProduct } from "src/types/IProduct";
 import "./styles.css";
+import { useAppDispatch, useAppSelector } from "src/types/hooks";
 
 const CartOffCanvas = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleOpen = () => {
     dispatch(openOrClose());
   };
 
-  const { productsOnCart, isOpen, total } = useSelector((state: IRootState) => {
+  const { productsOnCart, isOpen, total } = useAppSelector((state) => {
     let total = 0;
     const productsOnCart = state.cart.reduce<IProduct[]>(
       (items, itemOnCart) => {

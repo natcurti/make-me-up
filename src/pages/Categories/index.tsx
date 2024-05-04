@@ -21,10 +21,6 @@ const Categories = () => {
     allCategories: state.categories,
   }));
 
-  useEffect(() => {}, [allCategories]);
-
-  console.log(itemsToShow, allCategories);
-
   const categoriesArray = [];
   categoriesArray.push(
     ...allCategories.face,
@@ -33,7 +29,6 @@ const Categories = () => {
   );
 
   const category = categoriesArray.filter((item) => item.id === categoryName);
-  console.log(itemsToShow);
   const { name, description } = category[0] || [];
 
   return (

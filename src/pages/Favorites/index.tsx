@@ -1,10 +1,9 @@
-import { useSelector } from "react-redux";
 import ContainerProducts from "src/components/ContainerProducts";
 import Product from "src/components/Product";
-import { IRootState } from "src/store";
+import { useAppSelector } from "src/types/hooks";
 
 const Favorites = () => {
-  const favoriteProducts = useSelector((state: IRootState) =>
+  const favoriteProducts = useAppSelector((state) =>
     state.items.filter((item) => item.favorite === true)
   );
 

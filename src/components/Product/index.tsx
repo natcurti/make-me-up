@@ -10,7 +10,6 @@ import {
   DashCircle,
 } from "react-bootstrap-icons";
 import { IProduct } from "src/types/IProduct";
-import { useDispatch } from "react-redux";
 import { changeFavorite } from "src/store/reducers/items";
 import {
   addProductToCart,
@@ -18,6 +17,7 @@ import {
   updateQuantity,
 } from "src/store/reducers/cart";
 import { openOrClose } from "src/store/reducers/offcanvasCart";
+import { useAppDispatch } from "src/types/hooks";
 
 const Product = ({
   title,
@@ -30,7 +30,7 @@ const Product = ({
   isOnCart = false,
   quantity,
 }: IProduct) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleFavorite = (id: number) => {
     dispatch(changeFavorite(id));
