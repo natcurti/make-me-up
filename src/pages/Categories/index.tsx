@@ -1,20 +1,11 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BannerCategory from "src/components/BannerCategory";
 import ContainerProducts from "src/components/ContainerProducts";
 import Product from "src/components/Product";
-import { getCategories } from "src/store/reducers/categories";
-import { getItems } from "src/store/reducers/items";
-import { useAppDispatch, useAppSelector } from "src/types/hooks";
+import { useAppSelector } from "src/types/hooks";
 
 const Categories = () => {
   const { categoryName } = useParams();
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getItems());
-  }, [dispatch]);
 
   const { itemsToShow, allCategories } = useAppSelector((state) => ({
     itemsToShow: state.items.filter((item) => item.category === categoryName),

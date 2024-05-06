@@ -27,7 +27,7 @@ const Account = () => {
             >
               <Button
                 className="btn-sign-in mx-auto my-2"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/login")}
               >
                 Entrar
               </Button>
