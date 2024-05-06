@@ -5,10 +5,12 @@ import Home from "./pages/Home";
 import DefaultPage from "./pages/DefaultPage";
 import Categories from "./pages/Categories";
 import Favorites from "./pages/Favorites";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<DefaultPage />}>
           <Route index element={<Home />} />
