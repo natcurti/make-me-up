@@ -2,7 +2,6 @@
   background-color: var(--purple);
   color: var(--white);
   border: 0;
-  width: 100%;
 }
 
 .btn-app:hover,

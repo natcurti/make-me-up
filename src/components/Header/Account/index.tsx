@@ -1,10 +1,11 @@
-import { Button, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import { Heart } from "react-bootstrap-icons";
 import ButtonIcon from "src/components/ButtonIcon";
 import CartOffCanvas from "src/components/CartOffCanvas";
 import LinkDropDown from "../LinkDropDown";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import ButtonApp from "src/components/Button";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -25,12 +26,9 @@ const Account = () => {
               as={"span"}
               className="d-flex justify-content-center"
             >
-              <Button
-                className="btn-sign-in mx-auto my-2"
-                onClick={() => navigate("/login")}
-              >
+              <ButtonApp onClick={() => navigate("/login")} btnLogin>
                 Entrar
-              </Button>
+              </ButtonApp>
             </Dropdown.Item>
             <div className="d-flex flex-column container-new-account">
               Não tem conta?

@@ -8,22 +8,9 @@
 }
 
 .btn-login:hover,
-.btn-sign-in:hover {
+.btn-login:focus {
   background-color: var(--pink);
   color: white;
-}
-
-.btn-login:focus,
-.btn-sign-in:focus {
-  background-color: var(--pink);
-  color: white;
-}
-
-.btn-sign-in {
-  background-color: var(--purple);
-  color: var(--white);
-  border: 0;
-  width: 90%;
 }
 
 .container-new-account {

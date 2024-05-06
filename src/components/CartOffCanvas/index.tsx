@@ -1,4 +1,4 @@
-import { Button, Offcanvas } from "react-bootstrap";
+import { Offcanvas } from "react-bootstrap";
 import ButtonIcon from "../ButtonIcon";
 import { Cart2 } from "react-bootstrap-icons";
 import Product from "../Product";
@@ -6,6 +6,7 @@ import { openOrClose } from "src/store/reducers/offcanvasCart";
 import { IProduct } from "src/types/IProduct";
 import "./styles.css";
 import { useAppDispatch, useAppSelector } from "src/types/hooks";
+import ButtonApp from "../Button";
 
 const CartOffCanvas = () => {
   const dispatch = useAppDispatch();
@@ -54,7 +55,7 @@ const CartOffCanvas = () => {
           ))}
           <div className="d-flex flex-column">
             <p className="fw-bold fs-5">Total: {total.toFixed(2)} </p>
-            <Button className="btn-end-purchase">Finalizar compra</Button>
+            <ButtonApp>Finalizar compra</ButtonApp>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
