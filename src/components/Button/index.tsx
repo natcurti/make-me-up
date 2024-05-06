@@ -3,10 +3,15 @@ import "./styles.css";
 
 interface IButtonApp {
   children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
 }
 
-const ButtonApp = ({ children }: IButtonApp) => {
-  return <Button className="btn-app">{children}</Button>;
+const ButtonApp = ({ children, type }: IButtonApp) => {
+  return (
+    <Button className="btn-app" type={type}>
+      {children}
+    </Button>
+  );
 };
 
 export default ButtonApp;
