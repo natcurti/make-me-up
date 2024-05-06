@@ -7,7 +7,9 @@ export const productsListener = createListenerMiddleware();
 productsListener.startListening({
   actionCreator: getItems,
   effect: async (_action, { dispatch, fork, unsubscribe }) => {
-    const task = fork(async () => {
+    const task = fork(async (api) => {
+      await api.delay(2000);
+
       return await serviceProducts.getProducts();
     });
 
