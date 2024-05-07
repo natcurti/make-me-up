@@ -7,13 +7,22 @@ import {
   Form,
 } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./styles.css";
 import LinkDropDown from "../LinkDropDown";
-import { useAppSelector } from "src/types/hooks";
+import { useAppDispatch, useAppSelector } from "src/types/hooks";
+import { changeSearch, resetSearch } from "src/store/reducers/search";
+import { useEffect } from "react";
 
 const NavBarContainer = () => {
   const { face, eyes, mouth } = useAppSelector((state) => state.categories);
+  const search = useAppSelector((state) => state.search);
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+
+  useEffect(() => {
+    dispatch(resetSearch());
+  }, [dispatch, location]);
 
   return (
     <Navbar expand="lg" style={{ width: "80%" }}>
@@ -89,6 +98,8 @@ const NavBarContainer = () => {
                 placeholder="Buscar..."
                 className="me-2"
                 aria-label="Buscar"
+                value={search}
+                onChange={(e) => dispatch(changeSearch(e.target.value))}
               />
               <Button className="btn-search">
                 <Search size={20} color="#fff" />
