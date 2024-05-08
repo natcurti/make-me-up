@@ -7,6 +7,7 @@ import Categories from "./pages/Categories";
 import Favorites from "./pages/Favorites";
 import ScrollToTop from "./components/ScrollToTop";
 import Login from "./pages/Login";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="categorias/:categoryName" element={<Categories />} />
           <Route path="favoritos" element={<Favorites />} />
+          <Route path="busca" element={<Search />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

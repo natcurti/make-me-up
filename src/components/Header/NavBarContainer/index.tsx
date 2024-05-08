@@ -7,22 +7,27 @@ import {
   Form,
 } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import LinkDropDown from "../LinkDropDown";
 import { useAppDispatch, useAppSelector } from "src/types/hooks";
-import { changeSearch, resetSearch } from "src/store/reducers/search";
-import { useEffect } from "react";
+import {
+  resetInput,
+  setSearch,
+  updateInputField,
+} from "src/store/reducers/search";
 
 const NavBarContainer = () => {
   const { face, eyes, mouth } = useAppSelector((state) => state.categories);
-  const search = useAppSelector((state) => state.search);
+  const inputValue = useAppSelector((state) => state.search.inputField);
   const dispatch = useAppDispatch();
-  const location = useLocation();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(resetSearch());
-  }, [dispatch, location]);
+  const handleSearch = () => {
+    dispatch(setSearch());
+    dispatch(resetInput());
+    navigate("/busca");
+  };
 
   return (
     <Navbar expand="lg" style={{ width: "80%" }}>
@@ -98,10 +103,10 @@ const NavBarContainer = () => {
                 placeholder="Buscar..."
                 className="me-2"
                 aria-label="Buscar"
-                value={search}
-                onChange={(e) => dispatch(changeSearch(e.target.value))}
+                value={inputValue}
+                onChange={(e) => dispatch(updateInputField(e.target.value))}
               />
-              <Button className="btn-search">
+              <Button className="btn-search" onClick={handleSearch}>
                 <Search size={20} color="#fff" />
               </Button>
             </Form>
