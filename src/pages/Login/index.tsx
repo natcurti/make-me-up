@@ -1,24 +1,17 @@
-import { FloatingLabel, Form } from "react-bootstrap";
-import "./styles.css";
-import ButtonApp from "src/components/Button";
-import { Link } from "react-router-dom";
-import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { Form, Formik } from "formik";
 import { useState } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import { Link } from "react-router-dom";
+import ButtonApp from "src/components/Button";
 import ContainerForm from "src/components/ContainerForm";
+import InputField from "src/components/InputField";
+import * as Yup from "yup";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import "./styles.css";
 
 interface IValuesForm {
   email: string;
   password: string;
 }
-
-const validationSchema = Yup.object({
-  email: Yup.string()
-    .required("Você deve preencher o email.")
-    .email("Digite um email válido."),
-  password: Yup.string().required("Digite sua senha").min(6, "Senha incorreta"),
-});
 
 const Login = () => {
   const [isShow, setIsShow] = useState(false);
@@ -33,17 +26,22 @@ const Login = () => {
     onClick: handleShowPassword,
   };
 
-  const submitForm = (values: IValuesForm) => {
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+
+  const onSubmit = (values: IValuesForm) => {
     console.log(values);
   };
 
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    onSubmit: submitForm,
-    validationSchema,
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .required("Você deve preencher o email.")
+      .email("Digite um email válido."),
+    password: Yup.string()
+      .required("Digite sua senha")
+      .min(6, "Senha incorreta"),
   });
 
   return (
@@ -51,45 +49,36 @@ const Login = () => {
       title="Olá! Faça seu login ;)"
       subtitle="Entre com seu email e senha:"
     >
-      <Form onSubmit={formik.handleSubmit}>
-        <FloatingLabel controlId="floatingEmail" label="Email" className="mb-3">
-          <Form.Control
-            type="email"
-            placeholder="Digite seu email aqui"
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form>
+          <InputField
             name="email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            id="floatingEmail"
+            label="Email:"
+            type="text"
+            placeholder="Digite seu email"
           />
-        </FloatingLabel>
-        {formik.touched.email && formik.errors.email && (
-          <p className="text-danger">{formik.errors.email}</p>
-        )}
-        <FloatingLabel
-          controlId="floatingPassword"
-          label="Senha"
-          className="mb-3 input-password"
-        >
-          {!isShow && <IoMdEye {...iconProps} />}
-          {isShow && <IoMdEyeOff {...iconProps} />}
-          <Form.Control
-            type={isShow ? "text" : "password"}
-            placeholder="Digite sua senha aqui"
+          <InputField
             name="password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-        </FloatingLabel>
-        {formik.touched.password && formik.errors.password && (
-          <p className="text-danger">{formik.errors.password}</p>
-        )}
-        <div className="text-center mt-3">
-          <ButtonApp type="submit">Entrar</ButtonApp>
-          <p className="mb-0 mt-3">Não tem conta ainda ?</p>
-          <Link to="/cadastro">Clique aqui e faça seu cadastro</Link>
-        </div>
-      </Form>
+            id="floatingPassword"
+            label="Senha:"
+            type={isShow ? "text" : "password"}
+            placeholder="Digite sua senha"
+          >
+            {!isShow && <IoMdEye {...iconProps} />}
+            {isShow && <IoMdEyeOff {...iconProps} />}
+          </InputField>
+          <div className="text-center mt-3">
+            <ButtonApp type="submit">Entrar</ButtonApp>
+            <p className="mb-0 mt-3">Não tem conta ainda ?</p>
+            <Link to="/cadastro">Clique aqui e faça seu cadastro</Link>
+          </div>
+        </Form>
+      </Formik>
     </ContainerForm>
   );
 };

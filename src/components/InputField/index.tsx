@@ -7,6 +7,7 @@ interface IInputField {
   label: string;
   type: string;
   placeholder: string;
+  children?: React.ReactNode;
 }
 
 interface IFieldProps {
@@ -18,13 +19,21 @@ interface IFieldProps {
   };
 }
 
-const InputField = ({ name, id, label, type, placeholder }: IInputField) => {
+const InputField = ({
+  name,
+  id,
+  label,
+  type,
+  placeholder,
+  children,
+}: IInputField) => {
   return (
     <>
       <Field name={name}>
         {({ field }: IFieldProps) => {
           return (
             <FloatingLabel controlId={id} label={label} className="mb-3">
+              {children}
               <Form.Control type={type} {...field} placeholder={placeholder} />
             </FloatingLabel>
           );

@@ -6,12 +6,14 @@ import * as Yup from "yup";
 interface IFormValues {
   name: string;
   sobrenome: string;
+  cpf: string;
 }
 
 const Register = () => {
   const initialValues = {
     name: "",
     sobrenome: "",
+    cpf: "",
   };
 
   const onSubmit = (values: IFormValues) => {
@@ -25,6 +27,9 @@ const Register = () => {
     sobrenome: Yup.string()
       .required("Campo obrigatório")
       .min(3, "Digite um sobrenome válido"),
+    cpf: Yup.string()
+      .required("Campo obrigatório")
+      .min(11, "Digite um CPF válido"),
   });
 
   return (
@@ -51,6 +56,13 @@ const Register = () => {
             label="Sobrenome:"
             type="text"
             placeholder="Digite seu sobrenome"
+          />
+          <InputField
+            name="cpf"
+            id="floatingCPF"
+            label="CPF:"
+            type="text"
+            placeholder="Digite seu CPF"
           />
         </Form>
       </Formik>
