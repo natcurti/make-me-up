@@ -6,6 +6,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import ContainerForm from "src/components/ContainerForm";
 
 interface IValuesForm {
   email: string;
@@ -46,55 +47,50 @@ const Login = () => {
   });
 
   return (
-    <div className="bg-page d-flex justify-content-center align-items-center">
-      <main className="container-form shadow-sm p-5 rounded-4">
-        <h1 className="fs-3">Olá! Faça seu login ;)</h1>
-        <p className="fs-5">Entre com seu email e senha:</p>
-        <Form onSubmit={formik.handleSubmit}>
-          <FloatingLabel
-            controlId="floatingEmail"
-            label="Email"
-            className="mb-3"
-          >
-            <Form.Control
-              type="email"
-              placeholder="Digite seu email aqui"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </FloatingLabel>
-          {formik.touched.email && formik.errors.email && (
-            <p className="text-danger">{formik.errors.email}</p>
-          )}
-          <FloatingLabel
-            controlId="floatingPassword"
-            label="Senha"
-            className="mb-3 input-password"
-          >
-            {!isShow && <IoMdEye {...iconProps} />}
-            {isShow && <IoMdEyeOff {...iconProps} />}
-            <Form.Control
-              type={isShow ? "text" : "password"}
-              placeholder="Digite sua senha aqui"
-              name="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </FloatingLabel>
-          {formik.touched.password && formik.errors.password && (
-            <p className="text-danger">{formik.errors.password}</p>
-          )}
-          <div className="text-center mt-3">
-            <ButtonApp type="submit">Entrar</ButtonApp>
-            <p className="mb-0 mt-3">Não tem conta ainda ?</p>
-            <Link to="/cadastro">Clique aqui e faça seu cadastro</Link>
-          </div>
-        </Form>
-      </main>
-    </div>
+    <ContainerForm
+      title="Olá! Faça seu login ;)"
+      subtitle="Entre com seu email e senha:"
+    >
+      <Form onSubmit={formik.handleSubmit}>
+        <FloatingLabel controlId="floatingEmail" label="Email" className="mb-3">
+          <Form.Control
+            type="email"
+            placeholder="Digite seu email aqui"
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        </FloatingLabel>
+        {formik.touched.email && formik.errors.email && (
+          <p className="text-danger">{formik.errors.email}</p>
+        )}
+        <FloatingLabel
+          controlId="floatingPassword"
+          label="Senha"
+          className="mb-3 input-password"
+        >
+          {!isShow && <IoMdEye {...iconProps} />}
+          {isShow && <IoMdEyeOff {...iconProps} />}
+          <Form.Control
+            type={isShow ? "text" : "password"}
+            placeholder="Digite sua senha aqui"
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        </FloatingLabel>
+        {formik.touched.password && formik.errors.password && (
+          <p className="text-danger">{formik.errors.password}</p>
+        )}
+        <div className="text-center mt-3">
+          <ButtonApp type="submit">Entrar</ButtonApp>
+          <p className="mb-0 mt-3">Não tem conta ainda ?</p>
+          <Link to="/cadastro">Clique aqui e faça seu cadastro</Link>
+        </div>
+      </Form>
+    </ContainerForm>
   );
 };
 

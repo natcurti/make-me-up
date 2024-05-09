@@ -1,0 +1,35 @@
+.bg-page {
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("/assets/bg-login.jpg");
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container-form {
+  width: 80%;
+  background-color: var(--white);
+}
+
+.container-form h1 {
+  color: var(--pink);
+}
+
+.container-form a {
+  text-decoration: none;
+  color: var(--purple);
+}
+
+.container-form a:hover {
+  color: var(--pink);
+}
+
+@media (min-width: 768px) {
+  .container-form {
+    width: 615px;
+  }
+}

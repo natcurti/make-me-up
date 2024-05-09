@@ -8,6 +8,7 @@ import Favorites from "./pages/Favorites";
 import ScrollToTop from "./components/ScrollToTop";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="busca" element={<Search />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
