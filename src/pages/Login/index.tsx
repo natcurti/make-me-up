@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonApp from "src/components/Button";
 import ContainerForm from "src/components/ContainerForm";
 import InputField from "src/components/InputField";
@@ -15,6 +15,7 @@ interface IValuesForm {
 }
 
 const Login = () => {
+  const navigate = useNavigate();
   const isShow = useAppSelector((state) => state.passwordShow);
   const dispatch = useAppDispatch();
 
@@ -29,10 +30,6 @@ const Login = () => {
     password: "",
   };
 
-  const onSubmit = (values: IValuesForm) => {
-    console.log(values);
-  };
-
   const validationSchema = Yup.object({
     email: Yup.string()
       .required("Você deve preencher o email.")
@@ -41,6 +38,11 @@ const Login = () => {
       .required("Digite sua senha")
       .min(6, "Senha incorreta"),
   });
+
+  const onSubmit = async (values: IValuesForm) => {
+    await validationSchema.validate(values);
+    navigate("/");
+  };
 
   return (
     <ContainerForm
@@ -52,30 +54,37 @@ const Login = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form>
-          <InputField
-            name="email"
-            id="floatingEmail"
-            label="Email:"
-            type="text"
-            placeholder="Digite seu email"
-          />
-          <InputField
-            name="password"
-            id="floatingPassword"
-            label="Senha:"
-            type={isShow ? "text" : "password"}
-            placeholder="Digite sua senha"
-          >
-            {!isShow && <IoMdEye {...iconProps} />}
-            {isShow && <IoMdEyeOff {...iconProps} />}
-          </InputField>
-          <div className="text-center mt-3">
-            <ButtonApp type="submit">Entrar</ButtonApp>
-            <p className="mb-0 mt-3">Não tem conta ainda ?</p>
-            <Link to="/cadastro">Clique aqui e faça seu cadastro</Link>
-          </div>
-        </Form>
+        {(formik) => (
+          <Form>
+            <InputField
+              name="email"
+              id="floatingEmail"
+              label="Email:"
+              type="text"
+              placeholder="Digite seu email"
+            />
+            <InputField
+              name="password"
+              id="floatingPassword"
+              label="Senha:"
+              type={isShow ? "text" : "password"}
+              placeholder="Digite sua senha"
+            >
+              {!isShow && <IoMdEye {...iconProps} />}
+              {isShow && <IoMdEyeOff {...iconProps} />}
+            </InputField>
+            <div className="text-center mt-3">
+              <ButtonApp
+                type="submit"
+                disabled={!formik.isValid || formik.isSubmitting}
+              >
+                Entrar
+              </ButtonApp>
+              <p className="mb-0 mt-3">Não tem conta ainda ?</p>
+              <Link to="/cadastro">Clique aqui e faça seu cadastro</Link>
+            </div>
+          </Form>
+        )}
       </Formik>
     </ContainerForm>
   );

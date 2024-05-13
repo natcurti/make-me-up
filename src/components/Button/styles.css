@@ -8,3 +8,8 @@
 .btn-app:focus {
   background-color: var(--pink);
 }
+
+.btn-app:disabled {
+  background-color: var(--pink);
+  opacity: 0.5;
+}
