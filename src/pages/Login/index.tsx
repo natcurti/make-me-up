@@ -1,5 +1,4 @@
 import { Form, Formik } from "formik";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import ButtonApp from "src/components/Button";
 import ContainerForm from "src/components/ContainerForm";
@@ -7,6 +6,8 @@ import InputField from "src/components/InputField";
 import * as Yup from "yup";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import "./styles.css";
+import { useAppDispatch, useAppSelector } from "src/types/hooks";
+import { setIsShow } from "src/store/reducers/passwordShow";
 
 interface IValuesForm {
   email: string;
@@ -14,16 +15,13 @@ interface IValuesForm {
 }
 
 const Login = () => {
-  const [isShow, setIsShow] = useState(false);
-
-  const handleShowPassword = () => {
-    setIsShow(!isShow);
-  };
+  const isShow = useAppSelector((state) => state.passwordShow);
+  const dispatch = useAppDispatch();
 
   const iconProps = {
     className: "icon-eye",
     size: "25",
-    onClick: handleShowPassword,
+    onClick: () => dispatch(setIsShow()),
   };
 
   const initialValues = {

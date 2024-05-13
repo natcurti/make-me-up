@@ -4,6 +4,7 @@ import sliceCategories from "src/store/reducers/categories";
 import sliceCart from "src/store/reducers/cart";
 import searchSlice from "src/store/reducers/search";
 import sliceOffcanvasCart from "src/store/reducers/offcanvasCart";
+import slicePasswordShow from "src/store/reducers/passwordShow";
 import { categoriesListener } from "./middlewares/categories";
 import { productsListener } from "./middlewares/products";
 
@@ -14,6 +15,7 @@ const store = configureStore({
     cart: sliceCart,
     offcanvasCart: sliceOffcanvasCart,
     search: searchSlice,
+    passwordShow: slicePasswordShow,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().prepend(

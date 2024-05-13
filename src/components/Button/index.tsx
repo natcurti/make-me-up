@@ -6,12 +6,14 @@ interface IButtonApp {
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   btnLogin?: boolean;
+  disabled?: boolean;
 }
 
 const ButtonApp = ({
   children,
   type,
   onClick,
+  disabled = false,
   btnLogin = false,
 }: IButtonApp) => {
   const widthBtn = {
@@ -20,7 +22,13 @@ const ButtonApp = ({
   };
 
   return (
-    <Button className="btn-app" type={type} style={widthBtn} onClick={onClick}>
+    <Button
+      className="btn-app"
+      type={type}
+      style={widthBtn}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </Button>
   );

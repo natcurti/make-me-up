@@ -33,7 +33,7 @@ const Account = () => {
             <div className="d-flex flex-column container-new-account">
               Não tem conta?
               <Dropdown.Item as={"span"}>
-                <LinkDropDown to="/favoritos" type="new-account">
+                <LinkDropDown to="/cadastro" type="new-account">
                   Crie uma aqui
                 </LinkDropDown>
               </Dropdown.Item>
