@@ -9,7 +9,9 @@ import ButtonApp from "src/components/Button";
 import { useNavigate } from "react-router-dom";
 import { validateCPF, validatePhone } from "validations-br";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import auth from "src/firebaseConfig";
+import auth, { db } from "src/firebaseConfig";
+import { addDoc, collection } from "firebase/firestore";
+import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
 
 interface IFormValues {
   name: string;
@@ -61,12 +63,19 @@ const Register = () => {
   });
 
   const onSubmit = async (values: IFormValues) => {
-    await schema.validate(values);
-    createUserWithEmailAndPassword(auth, values.email, values.password)
-      .then(() => {
-        navigate("/");
-        console.log("Cadastro criado");
-      })
+    await addDoc(collection(db, "users"), {
+      name: values.name,
+      lastname: values.lastname,
+      email: values.email,
+      cpf: values.cpf,
+      cellphone: values.cellphone,
+      password: values.password,
+    })
+      .then(() =>
+        createUserWithEmailAndPassword(auth, values.email, values.password)
+      )
+      .then(() => navigate("/"))
+      .then(() => dispatch(setIsLoggedIn()))
       .catch((error) => console.log(error));
   };
 
