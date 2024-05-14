@@ -5,10 +5,17 @@ interface ILinkDropDown {
   children: React.ReactNode;
   to: string;
   type: string;
+  isLoggedIn?: boolean;
   onClick?: () => void;
 }
 
-const LinkDropDown = ({ children, to, type, onClick }: ILinkDropDown) => {
+const LinkDropDown = ({
+  children,
+  to,
+  type,
+  isLoggedIn,
+  onClick,
+}: ILinkDropDown) => {
   let styleLink = "";
   if (type === "new-account") {
     styleLink = "link-new-account";
@@ -19,7 +26,11 @@ const LinkDropDown = ({ children, to, type, onClick }: ILinkDropDown) => {
   }
 
   return (
-    <Link to={to} className={`focus-ring ${styleLink}`} onClick={onClick}>
+    <Link
+      to={to}
+      className={`focus-ring ${styleLink} ${isLoggedIn && "btn-logged-in"}`}
+      onClick={onClick}
+    >
       {children}
     </Link>
   );

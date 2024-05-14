@@ -19,6 +19,7 @@ const ButtonApp = ({
   const widthBtn = {
     width: btnLogin ? "90%" : "100%",
     marginTop: btnLogin ? "5px" : "",
+    marginBottom: btnLogin ? "5px" : "",
   };
 
   return (
