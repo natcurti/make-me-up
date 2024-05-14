@@ -6,17 +6,27 @@ import LinkDropDown from "../LinkDropDown";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import ButtonApp from "src/components/Button";
+import { useAppSelector } from "src/types/hooks";
 
 const Account = () => {
   const navigate = useNavigate();
+  const isLoggedIn = useAppSelector((state) => state.isLoggedIn);
+  console.log(isLoggedIn);
 
   return (
     <div className="d-flex align-items-center">
       <Dropdown>
         <Dropdown.Toggle id="dropdown-basic" className="btn-login">
           <div className="d-flex flex-column align-items-start">
-            <p className="m-0">Olá! Acesse</p>
-            <p className="m-0">sua conta</p>
+            {isLoggedIn ? (
+              <p className="m-0">
+                Olá! Seja <br /> bem vindo(a)!
+              </p>
+            ) : (
+              <p className="m-0">
+                Olá! Acesse <br /> sua conta
+              </p>
+            )}
           </div>
         </Dropdown.Toggle>
 

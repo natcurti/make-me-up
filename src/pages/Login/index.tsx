@@ -8,6 +8,9 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import "./styles.css";
 import { useAppDispatch, useAppSelector } from "src/types/hooks";
 import { setIsShow } from "src/store/reducers/passwordShow";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import auth from "src/firebaseConfig";
+import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
 
 interface IValuesForm {
   email: string;
@@ -41,7 +44,13 @@ const Login = () => {
 
   const onSubmit = async (values: IValuesForm) => {
     await validationSchema.validate(values);
-    navigate("/");
+    signInWithEmailAndPassword(auth, values.email, values.password)
+      .then(() => {
+        console.log("usuário logado");
+        dispatch(setIsLoggedIn());
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (

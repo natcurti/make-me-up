@@ -8,10 +8,13 @@ import { setIsShow } from "src/store/reducers/passwordShow";
 import ButtonApp from "src/components/Button";
 import { useNavigate } from "react-router-dom";
 import { validateCPF, validatePhone } from "validations-br";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "src/firebaseConfig";
 
 interface IFormValues {
   name: string;
   lastname: string;
+  email: string;
   cpf: string;
   cellphone: string;
   password: string;
@@ -24,6 +27,7 @@ const Register = () => {
   const initialValues = {
     name: "",
     lastname: "",
+    email: "",
     cpf: "",
     cellphone: "",
     password: "",
@@ -37,6 +41,9 @@ const Register = () => {
     lastname: Yup.string()
       .required("Campo obrigatório")
       .min(3, "Digite um sobrenome válido"),
+    email: Yup.string()
+      .required("Campo obrigatório")
+      .email("Digite um email válido"),
     cpf: Yup.string()
       .required("Campo obrigatório")
       .test("is-cpf", "Digite um CPF válido", (value) => validateCPF(value)),
@@ -55,8 +62,12 @@ const Register = () => {
 
   const onSubmit = async (values: IFormValues) => {
     await schema.validate(values);
-    navigate("/");
-    console.log("Formulário preenchido com sucesso");
+    createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then(() => {
+        navigate("/");
+        console.log("Cadastro criado");
+      })
+      .catch((error) => console.log(error));
   };
 
   const isShow = useAppSelector((state) => state.passwordShow);
@@ -93,6 +104,13 @@ const Register = () => {
               label="Sobrenome:"
               type="text"
               placeholder="Digite seu sobrenome"
+            />
+            <InputField
+              name="email"
+              id="floatingEmail"
+              label="Email:"
+              type="text"
+              placeholder="Digite seu email"
             />
             <InputField
               name="cpf"
