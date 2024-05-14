@@ -12,6 +12,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth, { db } from "src/firebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
 import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
+import { setUserLoggedInEmail } from "src/store/reducers/user";
 
 interface IFormValues {
   name: string;
@@ -74,8 +75,9 @@ const Register = () => {
       .then(() =>
         createUserWithEmailAndPassword(auth, values.email, values.password)
       )
-      .then(() => navigate("/"))
       .then(() => dispatch(setIsLoggedIn()))
+      .then(() => dispatch(setUserLoggedInEmail(values.email)))
+      .then(() => navigate("/"))
       .catch((error) => console.log(error));
   };
 

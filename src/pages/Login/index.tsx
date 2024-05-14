@@ -11,6 +11,9 @@ import { setIsShow } from "src/store/reducers/passwordShow";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "src/firebaseConfig";
 import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
+import { setUserLoggedInEmail } from "src/store/reducers/user";
+import { useState } from "react";
+import { Modal } from "react-bootstrap";
 
 interface IValuesForm {
   email: string;
@@ -19,6 +22,7 @@ interface IValuesForm {
 
 const Login = () => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   const isShow = useAppSelector((state) => state.passwordShow);
   const dispatch = useAppDispatch();
 
@@ -45,12 +49,10 @@ const Login = () => {
   const onSubmit = async (values: IValuesForm) => {
     await validationSchema.validate(values);
     signInWithEmailAndPassword(auth, values.email, values.password)
-      .then(() => {
-        console.log("usuário logado");
-        dispatch(setIsLoggedIn());
-        navigate("/");
-      })
-      .catch((error) => console.log(error));
+      .then(() => dispatch(setIsLoggedIn()))
+      .then(() => dispatch(setUserLoggedInEmail(values.email)))
+      .then(() => navigate("/"))
+      .catch(() => setShowModal(true));
   };
 
   return (
@@ -95,6 +97,19 @@ const Login = () => {
           </Form>
         )}
       </Formik>
+      {showModal && (
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Você ainda não tem uma conta!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Clique no botão abaixo e faça o seu cadastro</Modal.Body>
+          <Modal.Footer>
+            <ButtonApp onClick={() => navigate("/cadastro")}>
+              Criar Cadastro
+            </ButtonApp>
+          </Modal.Footer>
+        </Modal>
+      )}
     </ContainerForm>
   );
 };
