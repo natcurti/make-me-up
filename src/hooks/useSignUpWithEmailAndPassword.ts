@@ -8,7 +8,7 @@ import { setUserInfo } from "src/store/reducers/user";
 import { useNavigate } from "react-router-dom";
 
 const useSignUpWithEmailAndPassword = () => {
-  const [createUserWithEmailAndPassword, loading, error] =
+  const [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
