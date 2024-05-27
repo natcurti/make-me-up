@@ -5,7 +5,7 @@ import { setUserInfo } from "src/store/reducers/user";
 import { useAppDispatch } from "src/types/hooks";
 
 const useLogout = () => {
-  const [signOut, error] = useSignOut(auth);
+  const [signOut] = useSignOut(auth);
   const dispatch = useAppDispatch();
 
   const logout = async () => {
@@ -19,7 +19,7 @@ const useLogout = () => {
     }
   };
 
-  return { logout, error };
+  return { logout };
 };
 
 export default useLogout;

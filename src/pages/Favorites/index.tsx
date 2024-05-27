@@ -12,9 +12,13 @@ const Favorites = () => {
       <h3>Meus Favoritos</h3>
       <main className="w-100">
         <ContainerProducts>
-          {favoriteProducts.map((item) => (
-            <Product key={item.id} {...item} />
-          ))}
+          {favoriteProducts.length > 0 ? (
+            favoriteProducts.map((item) => <Product key={item.id} {...item} />)
+          ) : (
+            <p className="text-center">
+              Você ainda não possui nenhum favorito.
+            </p>
+          )}
         </ContainerProducts>
       </main>
     </div>

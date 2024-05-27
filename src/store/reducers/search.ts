@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  inputField: "",
-  searchedItems: "",
+  inputValue: "",
+  itemsToSearch: "",
 };
 
 const searchSlice = createSlice({
@@ -10,13 +10,13 @@ const searchSlice = createSlice({
   initialState,
   reducers: {
     updateInputField: (state, { payload }) => {
-      state.inputField = payload;
+      state.inputValue = payload;
     },
     setSearch: (state) => {
-      state.searchedItems = state.inputField;
+      state.itemsToSearch = state.inputValue;
     },
     resetInput: (state) => {
-      state.inputField = "";
+      state.inputValue = "";
     },
   },
 });

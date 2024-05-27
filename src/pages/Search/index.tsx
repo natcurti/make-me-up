@@ -4,13 +4,19 @@ import { useAppSelector } from "src/types/hooks";
 
 const Search = () => {
   const { filteredItems } = useAppSelector((state) => {
-    return {
-      filteredItems: state.items.filter((item) =>
-        item.title
-          .toLowerCase()
-          .includes(state.search.searchedItems.toLowerCase())
-      ),
-    };
+    if (state.search.itemsToSearch === "") {
+      return {
+        filteredItems: [],
+      };
+    } else {
+      return {
+        filteredItems: state.items.filter((item) =>
+          item.title
+            .toLowerCase()
+            .includes(state.search.itemsToSearch.toLowerCase())
+        ),
+      };
+    }
   });
 
   return (

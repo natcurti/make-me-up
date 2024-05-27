@@ -16,14 +16,16 @@ import {
   setSearch,
   updateInputField,
 } from "src/store/reducers/search";
+import React from "react";
 
 const NavBarContainer = () => {
   const { face, eyes, mouth } = useAppSelector((state) => state.categories);
-  const inputValue = useAppSelector((state) => state.search.inputField);
+  const inputValue = useAppSelector((state) => state.search.inputValue);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleSearch = () => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     dispatch(setSearch());
     dispatch(resetInput());
     navigate("/busca");
@@ -97,7 +99,7 @@ const NavBarContainer = () => {
                 </div>
               </NavDropdown>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSearch}>
               <Form.Control
                 type="search"
                 placeholder="Buscar..."
@@ -106,7 +108,7 @@ const NavBarContainer = () => {
                 value={inputValue}
                 onChange={(e) => dispatch(updateInputField(e.target.value))}
               />
-              <Button className="btn-search" onClick={handleSearch}>
+              <Button type="submit" className="btn-search">
                 <Search size={20} color="#fff" />
               </Button>
             </Form>

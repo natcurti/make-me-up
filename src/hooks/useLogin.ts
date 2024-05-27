@@ -8,7 +8,7 @@ import { IFormLogin } from "src/types/IFormLogin";
 import { useAppDispatch } from "src/types/hooks";
 
 const useLogin = () => {
-  const [signInWithEmailAndPassword, loading, error] =
+  const [signInWithEmailAndPassword, , loading, error] =
     useSignInWithEmailAndPassword(auth);
 
   const dispatch = useAppDispatch();
