@@ -6,21 +6,16 @@ import LinkDropDown from "../LinkDropDown";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import ButtonApp from "src/components/Button";
-import { useAppDispatch, useAppSelector } from "src/types/hooks";
-import { signOut } from "firebase/auth";
-
-import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
-import auth from "src/firebase/firebase-config";
+import { useAppSelector } from "src/types/hooks";
+import useLogout from "src/hooks/useLogout";
 
 const Account = () => {
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
   const isLoggedIn = useAppSelector((state) => state.isLoggedIn);
+  const { logout } = useLogout();
 
   const handleSignOut = () => {
-    signOut(auth)
-      .then(() => dispatch(setIsLoggedIn()))
-      .catch((error) => console.log(error));
+    logout();
   };
 
   return (
