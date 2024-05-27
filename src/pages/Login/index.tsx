@@ -6,30 +6,21 @@ import InputField from "src/components/InputField";
 import * as Yup from "yup";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import "./styles.css";
-import { useAppDispatch, useAppSelector } from "src/types/hooks";
-import { setIsShow } from "src/store/reducers/passwordShow";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import auth from "src/firebaseConfig";
-import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
-import { setUserLoggedInEmail } from "src/store/reducers/user";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-
-interface IValuesForm {
-  email: string;
-  password: string;
-}
+import { IFormLogin } from "src/types/IFormLogin";
+import useLogin from "src/hooks/useLogin";
 
 const Login = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
-  const isShow = useAppSelector((state) => state.passwordShow);
-  const dispatch = useAppDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const { login } = useLogin();
 
   const iconProps = {
     className: "icon-eye",
     size: "25",
-    onClick: () => dispatch(setIsShow()),
+    onClick: () => setShowPassword(!showPassword),
   };
 
   const initialValues = {
@@ -46,13 +37,8 @@ const Login = () => {
       .min(6, "Senha incorreta"),
   });
 
-  const onSubmit = async (values: IValuesForm) => {
-    await validationSchema.validate(values);
-    signInWithEmailAndPassword(auth, values.email, values.password)
-      .then(() => dispatch(setIsLoggedIn()))
-      .then(() => dispatch(setUserLoggedInEmail(values.email)))
-      .then(() => navigate("/"))
-      .catch(() => setShowModal(true));
+  const onSubmit = async (values: IFormLogin) => {
+    login(values);
   };
 
   return (
@@ -78,11 +64,11 @@ const Login = () => {
               name="password"
               id="floatingPassword"
               label="Senha:"
-              type={isShow ? "text" : "password"}
+              type={showPassword ? "text" : "password"}
               placeholder="Digite sua senha"
             >
-              {!isShow && <IoMdEye {...iconProps} />}
-              {isShow && <IoMdEyeOff {...iconProps} />}
+              {!showPassword && <IoMdEye {...iconProps} />}
+              {showPassword && <IoMdEyeOff {...iconProps} />}
             </InputField>
             <div className="text-center mt-3">
               <ButtonApp

@@ -8,14 +8,14 @@ import { useNavigate } from "react-router-dom";
 import ButtonApp from "src/components/Button";
 import { useAppDispatch, useAppSelector } from "src/types/hooks";
 import { signOut } from "firebase/auth";
-import auth from "src/firebaseConfig";
+
 import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
+import auth from "src/firebase/firebase-config";
 
 const Account = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const isLoggedIn = useAppSelector((state) => state.isLoggedIn);
-  console.log(isLoggedIn);
 
   const handleSignOut = () => {
     signOut(auth)

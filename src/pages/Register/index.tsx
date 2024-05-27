@@ -3,29 +3,16 @@ import ContainerForm from "src/components/ContainerForm";
 import InputField from "src/components/InputField";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import * as Yup from "yup";
-import { useAppDispatch, useAppSelector } from "src/types/hooks";
-import { setIsShow } from "src/store/reducers/passwordShow";
 import ButtonApp from "src/components/Button";
-import { useNavigate } from "react-router-dom";
 import { validateCPF, validatePhone } from "validations-br";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import auth, { db } from "src/firebaseConfig";
-import { addDoc, collection } from "firebase/firestore";
-import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
-import { setUserLoggedInEmail } from "src/store/reducers/user";
-
-interface IFormValues {
-  name: string;
-  lastname: string;
-  email: string;
-  cpf: string;
-  cellphone: string;
-  password: string;
-  passwordRepeat: string;
-}
+import { useState } from "react";
+import { IUser } from "src/types/IUser";
+import useSignUpWithEmailAndPassword from "src/hooks/useSignUpWithEmailAndPassword";
 
 const Register = () => {
-  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
+  const { signUp } = useSignUpWithEmailAndPassword();
 
   const initialValues = {
     name: "",
@@ -63,31 +50,13 @@ const Register = () => {
       .oneOf([Yup.ref("password"), ""], "As senhas digitadas não correspondem"),
   });
 
-  const onSubmit = async (values: IFormValues) => {
-    await addDoc(collection(db, "users"), {
-      name: values.name,
-      lastname: values.lastname,
-      email: values.email,
-      cpf: values.cpf,
-      cellphone: values.cellphone,
-      password: values.password,
-    })
-      .then(() =>
-        createUserWithEmailAndPassword(auth, values.email, values.password)
-      )
-      .then(() => dispatch(setIsLoggedIn()))
-      .then(() => dispatch(setUserLoggedInEmail(values.email)))
-      .then(() => navigate("/"))
-      .catch((error) => console.log(error));
+  const onSubmit = (values: IUser) => {
+    signUp(values);
   };
-
-  const isShow = useAppSelector((state) => state.passwordShow);
-  const dispatch = useAppDispatch();
 
   const iconProps = {
     className: "icon-eye",
     size: "25",
-    onClick: () => dispatch(setIsShow()),
   };
 
   return (
@@ -141,21 +110,41 @@ const Register = () => {
               name="password"
               id="floatingPassword"
               label="Senha:"
-              type={isShow ? "text" : "password"}
+              type={showPassword ? "text" : "password"}
               placeholder="Crie uma senha"
             >
-              {!isShow && <IoMdEye {...iconProps} />}
-              {isShow && <IoMdEyeOff {...iconProps} />}
+              {!showPassword && (
+                <IoMdEye
+                  {...iconProps}
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+              )}
+              {showPassword && (
+                <IoMdEyeOff
+                  {...iconProps}
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+              )}
             </InputField>
             <InputField
               name="passwordRepeat"
               id="floatingPasswordRepeat"
               label="Confirme sua senha:"
-              type={isShow ? "text" : "password"}
+              type={showPasswordRepeat ? "text" : "password"}
               placeholder="Confirme sua senha"
             >
-              {!isShow && <IoMdEye {...iconProps} />}
-              {isShow && <IoMdEyeOff {...iconProps} />}
+              {!showPasswordRepeat && (
+                <IoMdEye
+                  {...iconProps}
+                  onClick={() => setShowPasswordRepeat(!showPasswordRepeat)}
+                />
+              )}
+              {showPasswordRepeat && (
+                <IoMdEyeOff
+                  {...iconProps}
+                  onClick={() => setShowPasswordRepeat(!showPasswordRepeat)}
+                />
+              )}
             </InputField>
             <ButtonApp
               type="submit"
