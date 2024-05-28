@@ -11,7 +11,8 @@ import useLogout from "src/hooks/useLogout";
 
 const Account = () => {
   const navigate = useNavigate();
-  const isLoggedIn = useAppSelector((state) => state.isLoggedIn);
+  const user = useAppSelector((state) => state.user);
+  const isLoggedIn = Object.keys(user).length > 0;
   const { logout } = useLogout();
 
   const handleSignOut = () => {
@@ -25,7 +26,7 @@ const Account = () => {
           <div className="d-flex flex-column align-items-start">
             {isLoggedIn ? (
               <p className="m-0">
-                Olá! Seja <br /> bem vindo(a)!
+                Olá, {user.name}! <br /> Minha Conta
               </p>
             ) : (
               <p className="m-0">
@@ -66,7 +67,7 @@ const Account = () => {
 
             <Dropdown.Item as={"span"}>
               <LinkDropDown
-                to="/favoritos"
+                to="/meus-pedidos"
                 type="account"
                 isLoggedIn={isLoggedIn}
               >

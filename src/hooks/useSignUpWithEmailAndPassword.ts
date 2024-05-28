@@ -3,7 +3,6 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { IUser } from "src/types/IUser";
 import { doc, setDoc } from "firebase/firestore";
 import { useAppDispatch } from "src/types/hooks";
-import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
 import { setUserInfo } from "src/store/reducers/user";
 import { useNavigate } from "react-router-dom";
 
@@ -30,8 +29,7 @@ const useSignUpWithEmailAndPassword = () => {
           password: values.password,
         };
         await setDoc(doc(db, "users", newUser.user.uid), userDoc);
-        localStorage.setItem("user-info", JSON.stringify(userDoc));
-        dispatch(setIsLoggedIn());
+        localStorage.setItem("user-make-me-up", JSON.stringify(userDoc));
         dispatch(setUserInfo(userDoc));
         navigate("/");
       }

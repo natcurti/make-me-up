@@ -2,7 +2,6 @@ import { doc, getDoc } from "firebase/firestore";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth, { db } from "src/firebase/firebase-config";
-import { setIsLoggedIn } from "src/store/reducers/isLoggedIn";
 import { setUserInfo } from "src/store/reducers/user";
 import { IFormLogin } from "src/types/IFormLogin";
 import { useAppDispatch } from "src/types/hooks";
@@ -23,9 +22,7 @@ const useLogin = () => {
       if (userCredential) {
         const docRef = doc(db, "users", userCredential.user.uid);
         const docSnap = await getDoc(docRef);
-        console.log(docSnap.data());
-        localStorage.setItem("user-info", JSON.stringify(docSnap.data()));
-        dispatch(setIsLoggedIn());
+        localStorage.setItem("user-make-me-up", JSON.stringify(docSnap.data()));
         dispatch(setUserInfo(docSnap.data()));
         navigate("/");
       }

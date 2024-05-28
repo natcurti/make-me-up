@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "src/types/IUser";
 
-const initialState: IUser | null = JSON.parse(
-  localStorage.getItem("user-info") || "{}"
+const initialState: IUser = JSON.parse(
+  localStorage.getItem("user-make-me-up") || "{}"
 );
 
 const sliceUser = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUserInfo: (state, { payload }) => {
-      state = payload;
+    setUserInfo: (_state, { payload }) => {
+      return payload;
     },
   },
 });

@@ -4,7 +4,6 @@ import sliceCategories from "src/store/reducers/categories";
 import sliceCart from "src/store/reducers/cart";
 import searchSlice from "src/store/reducers/search";
 import sliceOffcanvasCart from "src/store/reducers/offcanvasCart";
-import sliceIsLoggedIn from "src/store/reducers/isLoggedIn";
 import sliceUser from "src/store/reducers/user";
 import { categoriesListener } from "./middlewares/categories";
 import { productsListener } from "./middlewares/products";
@@ -16,7 +15,6 @@ const store = configureStore({
     cart: sliceCart,
     offcanvasCart: sliceOffcanvasCart,
     search: searchSlice,
-    isLoggedIn: sliceIsLoggedIn,
     user: sliceUser,
   },
   middleware: (getDefaultMiddleware) =>
