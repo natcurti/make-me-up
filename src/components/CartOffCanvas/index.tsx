@@ -7,12 +7,25 @@ import { IProduct } from "src/types/IProduct";
 import "./styles.css";
 import { useAppDispatch, useAppSelector } from "src/types/hooks";
 import ButtonApp from "../Button";
+import { resetCart } from "src/store/reducers/cart";
+import { useState } from "react";
+import ToastComponent from "../Toast";
 
 const CartOffCanvas = () => {
   const dispatch = useAppDispatch();
+  const [showToast, setShowToast] = useState(false);
 
   const handleOpen = () => {
     dispatch(openOrClose());
+  };
+
+  const finalizePurchase = () => {
+    dispatch(openOrClose());
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+      dispatch(resetCart());
+    }, 5000);
   };
 
   const { productsOnCart, isOpen, total } = useAppSelector((state) => {
@@ -55,10 +68,24 @@ const CartOffCanvas = () => {
           ))}
           <div className="d-flex flex-column">
             <p className="fw-bold fs-5">Total: {total.toFixed(2)} </p>
-            <ButtonApp>Finalizar compra</ButtonApp>
+            <ButtonApp onClick={finalizePurchase}>Finalizar compra</ButtonApp>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
+      {showToast && productsOnCart.length > 0 && (
+        <ToastComponent
+          title="Sucesso!"
+          status="success"
+          message="Compra finalizada com sucesso"
+        />
+      )}
+      {showToast && productsOnCart.length === 0 && (
+        <ToastComponent
+          title="Erro!"
+          status="error"
+          message="Não há produtos no carrinho."
+        />
+      )}
     </>
   );
 };

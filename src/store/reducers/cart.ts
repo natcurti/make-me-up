@@ -29,10 +29,11 @@ const sliceCart = createSlice({
       const index = state.findIndex((product) => product.id === payload);
       state.splice(index, 1);
     },
+    resetCart: () => initialState,
   },
 });
 
-export const { addProductToCart, updateQuantity, deleteItem } =
+export const { addProductToCart, updateQuantity, deleteItem, resetCart } =
   sliceCart.actions;
 
 export default sliceCart.reducer;
