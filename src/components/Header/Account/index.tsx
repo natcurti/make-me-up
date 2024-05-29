@@ -75,7 +75,7 @@ const Account = () => {
               </LinkDropDown>
             </Dropdown.Item>
             <Dropdown.Item as={"span"}>
-              <LinkDropDown to="/favoritos" type="account">
+              <LinkDropDown to="/meus-dados" type="account">
                 Meus Dados
               </LinkDropDown>
             </Dropdown.Item>

@@ -88,7 +88,9 @@ const Login = () => {
           )}
         </Formik>
       </ContainerForm>
-      {error && <ToastComponent title="Erro" error={error.message} />}
+      {error && (
+        <ToastComponent title="Erro" status="error" message={error.message} />
+      )}
     </>
   );
 };

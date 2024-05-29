@@ -7,6 +7,7 @@ interface IInputField {
   label: string;
   type: string;
   placeholder: string;
+  disabled?: boolean;
   children?: React.ReactNode;
 }
 
@@ -26,6 +27,7 @@ const InputField = ({
   type,
   placeholder,
   children,
+  disabled,
 }: IInputField) => {
   return (
     <>
@@ -34,7 +36,12 @@ const InputField = ({
           return (
             <FloatingLabel controlId={id} label={label} className="mb-3">
               {children}
-              <Form.Control type={type} {...field} placeholder={placeholder} />
+              <Form.Control
+                type={type}
+                {...field}
+                placeholder={placeholder}
+                disabled={disabled}
+              />
             </FloatingLabel>
           );
         }}

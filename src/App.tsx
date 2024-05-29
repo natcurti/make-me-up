@@ -12,6 +12,7 @@ import Register from "./pages/Register";
 import Orders from "./pages/Orders";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./firebase/firebase-config";
+import ClientData from "./pages/ClientData";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -28,6 +29,10 @@ function App() {
           <Route
             path="meus-pedidos"
             element={user ? <Orders /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="meus-dados"
+            element={user ? <ClientData /> : <Navigate to="/login" />}
           />
         </Route>
         <Route path="/login" element={<Login />} />

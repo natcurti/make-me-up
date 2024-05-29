@@ -4,10 +4,11 @@ import "./styles.css";
 
 interface IToastComponent {
   title: string;
-  error: string;
+  status: string;
+  message: string;
 }
 
-const ToastComponent = ({ title, error }: IToastComponent) => {
+const ToastComponent = ({ title, status, message }: IToastComponent) => {
   const [showToast, setShowToast] = useState(true);
 
   return (
@@ -19,9 +20,15 @@ const ToastComponent = ({ title, error }: IToastComponent) => {
       className="container-toast"
     >
       <Toast.Header>
-        <strong className="me-auto text-danger">{title}</strong>
+        <strong
+          className={`me-auto ${
+            status === "error" ? "text-danger" : "text-success"
+          }`}
+        >
+          {title}
+        </strong>
       </Toast.Header>
-      <Toast.Body>{error}</Toast.Body>
+      <Toast.Body>{message}</Toast.Body>
     </Toast>
   );
 };
