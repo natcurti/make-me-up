@@ -27,3 +27,5 @@ Depois você pode rodar a aplicação com o comando:
 ```
 
 ## 👇 Confira o projeto pelo link:
+
+https://make-me-up.vercel.app/
